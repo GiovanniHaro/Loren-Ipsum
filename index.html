@@ -244,7 +244,7 @@ input[type=date]{color-scheme:dark}input[type=time]{color-scheme:dark}
 .mem-add small{color:var(--muted)}
 .mem-empty{font-style:italic;color:var(--muted);text-align:center;margin-top:14px}
 /* Recuerdos especiales (página) */
-.mems{margin-bottom:34px;text-align:center}
+.mems{margin-bottom:34px;padding:0;text-align:center}
 .mems h2{font-size:1.6rem}
 .mem-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 14px;margin-top:14px}
 .mem-grid .polaroid{width:calc(50% - 7px)}
@@ -687,7 +687,14 @@ const DEMO = {
   id: "demo", a: "Ana", b: "Mateo", from: "Ana", date: "2021-06-14", time: "20:00",
   song: { title: "Perfect", artist: "Ed Sheeran", url: "https://youtu.be/2Vv-BfVoq4g" },
   letter: "Mi querido Mateo,\n\nCada día a tu lado se ha vuelto mi parte favorita de la vida. Desde aquella noche de junio supe que algo bonito estaba empezando.\n\nGracias por las risas, por la paciencia y por elegirme incluso en los días difíciles. Contigo aprendí que el amor no es perfecto, es real.\n\nQue sigan sumando los segundos en este contador, porque quiero vivirlos todos contigo.",
-  sign: "Ana", photos: ["img/demo-1.jpg", "img/demo-2.jpg", "img/demo-3.jpg"], paid: true, demo: true, lang: "es"
+  sign: "Ana", photos: ["img/demo-1.jpg", "img/demo-2.jpg", "img/demo-3.jpg"],
+  memories: [
+    { img: "img/recuerdo-1.jpg", text: "Nuestro primer San Valentín juntos" },
+    { img: "img/recuerdo-2.jpg", text: "La primera escapada a la playa" },
+    { img: "img/recuerdo-3.jpg", text: "Ese atardecer en que el frío no importó" },
+    { img: "img/recuerdo-4.jpg", text: "Las rosas que todavía guardo" }
+  ],
+  paid: true, demo: true, lang: "es"
 };
 
 /* ===================================================================
