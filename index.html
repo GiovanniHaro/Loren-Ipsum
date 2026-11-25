@@ -520,6 +520,7 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
 .rv[data-rv=up20]{transform:translateY(20px)}
 .rv[data-rv=up15]{transform:translateY(15px)}
 .rv[data-rv=up10]{transform:translateY(10px)}
+.rv.in[data-rv^=up]{transform:none}
 .x-card.rv.in:hover{transform:translateY(-4px)}
 .h-hearts{position:absolute;inset:0;pointer-events:none;z-index:0}
 .h-hearts i{position:absolute;width:16px;height:16px;opacity:.35;background:var(--accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center/contain no-repeat}
@@ -548,6 +549,17 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes floatH{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
 @keyframes beatSoft{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+/* Ajuste de tamaños y espacios de títulos (más compacto, como la referencia) */
+.x-sec{padding:72px 0}
+.x-eye{display:block;font-size:.78rem;letter-spacing:.1em;margin-bottom:.55em}
+.x-h{font-size:clamp(1.5rem,3.4vw,1.8rem);line-height:1.2;margin:0 0 28px}
+.x-h.big{font-size:clamp(1.9rem,4.4vw,2.55rem);line-height:1.12;margin:0 0 .4em}
+.x-head{margin-bottom:36px}
+.x-head p{font-size:1.02rem}
+.x-trust{padding-top:8px}
+.x-faqsec{padding-top:24px}
+@media (max-width:600px){.x-sec{padding:56px 0}.x-head{margin-bottom:28px}.x-h{margin-bottom:22px}}
 </style>
 </head>
 <body>
@@ -967,7 +979,7 @@ function viewHome(){
   const dd = diff(new Date(2021, 5, 14)); $("#mk-y").textContent = dd.y; $("#mk-m").textContent = dd.mo; $("#mk-d").textContent = dd.d;
   // Apariciones al hacer scroll: títulos suben 30px, tarjetas 10-20px en cascada
   const mark = (sel, rv) => $$(sel).forEach(el => { el.classList.add("rv"); el.dataset.rv = rv; });
-  mark(".x-head, .x-h, .x-faq, .x-sec .center", "up30");
+  mark(".x-head, .x-sec > .wrap > .x-h, .x-faq, .x-sec .center", "up30");
   mark(".x-line", "up15"); mark(".x-step", "up30"); mark(".x-feat, .x-testi", "up20"); mark(".x-pill", "up10");
   mark(".offer", "up30"); mark(".offer .list-check", "left"); mark(".offer .after", "right");
   $$(".x-faq details").forEach(d => d.classList.toggle("rv", false));
