@@ -428,6 +428,16 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
 @media (max-width:480px){.player-dock .music .t small.hint{display:none}}
 @media (prefers-reduced-motion:reduce){.rv,.letter p,.letter::before{opacity:1!important;transform:none!important}}
 
+
+/* Contador estilo tarjetas en fila */
+#lp-time .counter{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px;perspective:600px}
+#lp-time .counter div{flex:0 0 clamp(92px,15vw,112px);padding:22px 8px 20px;border-radius:20px;background:linear-gradient(180deg,#27252b,#201f24);border:1px solid rgba(255,255,255,.09)}
+#lp-time .counter b{font:700 clamp(2.3rem,6vw,3.3rem)/1 var(--sans);letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums}
+#lp-time .counter span{display:block;margin-top:12px;font-size:.78rem;letter-spacing:.14em;color:rgba(255,255,255,.85)}
+@media (max-width:480px){#lp-time .counter{gap:10px}#lp-time .counter div{flex-basis:calc(33.33% - 7px);padding:18px 4px 16px}}
+.mems h2{margin-bottom:0}
+.mems .mem-grid{margin-top:44px}
+
 /* Reveal sutil */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .rv.in{opacity:1;transform:none}
@@ -1256,7 +1266,7 @@ async function viewLove(p){
       <section class="lp-sec" id="lp-time">
         <span class="eyebrow rv">${T("loveTime")}</span>
         <h2 class="rv">${T("time")}</h2><p class="muted rv" style="margin:0">${T("sub")}</p>
-        <div class="counter" id="ctr" data-stagger>${["y","mo","d","h","mi","s"].map(k => `<div class="rv" data-rv="zoom"><b data-k="${k}">00</b>${T(k)}</div>`).join("")}</div>
+        <div class="counter" id="ctr" data-stagger>${["y","mo","d","h","mi"].map(k => `<div class="rv" data-rv="zoom"><b data-k="${k}">00</b>${T(k)}</div>`).join("")}</div>
       </section>
       ${galleryHtml ? `<section class="lp-sec" style="padding-top:0"><h2 class="rv">${T("photos")}</h2><div class="gallery" data-stagger>${galleryHtml}</div></section>` : ""}
       ${mems.length ? `<section class="mems lp-sec"><h2 class="rv">${T("memories")}</h2><div class="mem-grid" data-stagger>${mems.map((m, i) => `<figure class="polaroid rv" data-rv="drop" style="--r:${[-2.5, 2, -1.5, 3][i % 4]}deg"><button type="button" data-mem="${i}" aria-label="Recuerdo ${i + 1}"><img src="${m.img}" alt="" loading="lazy"></button>${m.text ? `<figcaption>${esc(m.text)}</figcaption>` : ""}</figure>`).join("")}</div></section>` : ""}
