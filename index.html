@@ -510,6 +510,10 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
 .x-faq details p{margin:0;padding:0 28px 24px;color:var(--muted)}
 @media (max-width:860px){.x-feats,.x-testis{grid-template-columns:1fr 1fr}.x-steps{grid-template-columns:1fr}}
 @media (max-width:600px){.x-sec{padding:64px 0}.x-inc-grid,.x-trust-grid,.x-feats,.x-testis{grid-template-columns:1fr}.x-line{min-height:0}.x-faq summary{padding:20px 22px;font-size:1.04rem}.x-faq details p{padding:0 22px 20px}}
+
+/* QR visible en "Comparte el amor" */
+.lp-qr{width:min(300px,78vw);aspect-ratio:1;margin:30px auto 26px;padding:clamp(34px,9vw,48px);border-radius:28px;background:linear-gradient(180deg,#27252b,#201f24);border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);box-sizing:border-box}
+.lp-qr canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
 </style>
 </head>
 <body>
@@ -789,12 +793,12 @@ async function shareUrl(p){ return baseUrl() + "#/v/" + await pack(portableData(
 /* ===================================================================
    QR (librería qrcode-generator, MIT, incluida abajo)
    =================================================================== */
-function qrCanvas(text, size = 600, margin = 2){
+function qrCanvas(text, size = 600, margin = 2, bg = "#fff", fg = "#1b0f18"){
   qrcode.stringToBytes = qrcode.stringToBytesFuncs["UTF-8"];
   const qr = qrcode(0, "L"); qr.addData(text); qr.make();
   const n = qr.getModuleCount(), cells = n + margin * 2, px = Math.floor(size / cells), real = px * cells;
   const c = document.createElement("canvas"); c.width = c.height = real;
-  const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, real, real); x.fillStyle = "#1b0f18";
+  const x = c.getContext("2d"); if (bg){ x.fillStyle = bg; x.fillRect(0, 0, real, real); } x.fillStyle = fg;
   for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) x.fillRect((col + margin) * px, (r + margin) * px, px, px);
   return c;
 }
@@ -1347,6 +1351,7 @@ async function viewLove(p){
       ${p.letter ? `<section class="lp-sec"><span class="eyebrow rv">${T("letterEy")}</span><article class="letter rv" data-rv="up40" style="text-align:left"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></span><svg class="corner" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>${esc(p.letter).split(/\n{2,}/).map((t, i) => `<p style="--i:${i}">${t}</p>`).join("")}<p class="sign" style="--i:${esc(p.letter).split(/\n{2,}/).length}">${T("love")}<br><b>${esc(p.sign || p.a)}</b></p></article></section>` : ""}
       <section class="lp-share lp-sec">
         <h2 class="rv">${T("share")}</h2>
+        <div class="lp-qr rv" data-rv="zoom" id="lpQrBox" role="img" aria-label="QR"></div>
         <button class="btn sm rv" data-rv="pop" id="lpQr">${T("qr")}</button>
         <div class="share" data-stagger>${shareButtons(url, p, I18N[lang])}</div>
       </section>
@@ -1395,6 +1400,7 @@ async function viewLove(p){
   $$("[data-mem]").forEach(b => b.onclick = () => openImg(mems[+b.dataset.mem].img));
   $("#lbClose").onclick = () => lb.close(); lb.onclick = e => e.target === lb && lb.close();
   // QR
+  { const box = $("#lpQrBox"); if (box) box.appendChild(qrCanvas(url, 640, 0, "", "#ff4f6d")); }
   $("#lpQr").onclick = () => download(qrCanvas(url, 1000), `qr-${p.a}-${p.b}.png`);
   document.title = `${p.a} & ${p.b} 💕`;
   if (!p.demo) { let m = document.querySelector('meta[name=robots]'); if (!m){ m = document.createElement("meta"); m.name = "robots"; document.head.appendChild(m); } m.content = "noindex"; }
