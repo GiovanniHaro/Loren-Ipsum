@@ -1,0 +1,3350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- EDITAR: título y descripción SEO -->
+<title>Loren Ipsum · Regala una página con su historia de amor</title>
+<meta name="description" content="Crea en minutos una página romántica con sus fotos, su canción, una carta y un contador en vivo del tiempo que llevan juntos. Recibe un QR y una tarjeta para regalar.">
+<meta name="theme-color" content="#160c14">
+<meta property="og:title" content="Loren Ipsum · Regala su historia de amor">
+<meta property="og:description" content="Fotos, canción, carta y contador del tiempo juntos en una página privada con QR.">
+<meta property="og:type" content="website">
+<!-- EDITAR: imagen para compartir en redes (1200x630) -->
+<!-- <meta property="og:image" content="https://TU_DOMINIO/og.jpg"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ====== META PIXEL: pega aquí tu código (reemplaza [TU_PIXEL_ID]) ======
+<script>!function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','[TU_PIXEL_ID]');fbq('track','PageView');</script>
+====== -->
+<!-- ====== GOOGLE ANALYTICS 4: pega aquí tu código (reemplaza [TU_ID_GA4]) ======
+<script async src="https://www.googletagmanager.com/gtag/js?id=[TU_ID_GA4]"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','[TU_ID_GA4]');</script>
+====== -->
+
+<style>
+/* ===== EDITAR COLORES DE MARCA AQUÍ ===== */
+:root{
+  --bg:#160c14;          /* fondo principal */
+  --bg-2:#20121c;        /* fondo de secciones alternas */
+  --card:#2a1824;        /* tarjetas */
+  --line:#3d2534;        /* bordes */
+  --text:#fbeff3;        /* texto principal */
+  --muted:#c9aebb;       /* texto secundario */
+  --accent:#ff6f7d;      /* color de acción (botones) */
+  --accent-2:#ffb36b;    /* color de apoyo (degradados, detalles) */
+  --ok:#5fd39a;
+  --radius:18px;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,7vw,3.6rem)}
+h2{font-size:clamp(1.7rem,5vw,2.6rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:8px}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:.8em 1.5em;border-radius:999px;border:0;font:700 1rem var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;color:#2a0a12;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 10px 30px -10px rgba(255,111,125,.7)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:none}
+.btn.ghost{background:transparent;color:var(--text);border:1.5px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn.sm{min-height:42px;padding:.5em 1.1em;font-size:.92rem}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.pill{display:inline-flex;gap:.4em;align-items:center;padding:.35em .9em;border-radius:999px;background:rgba(255,111,125,.12);border:1px solid rgba(255,111,125,.35);font-size:.85rem;font-weight:500}
+
+/* Header */
+.top{position:sticky;top:0;z-index:30;background:rgba(22,12,20,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:1rem}
+.logo{white-space:nowrap;font-family:var(--serif);font-weight:700;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:.4em}
+.logo i{font-style:normal;color:var(--accent)}
+.top nav{display:flex;gap:.5rem;align-items:center}
+.top nav a.link{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:500;padding:.5em .7em}
+.top nav a.link:hover{color:var(--text)}
+@media (max-width:560px){.top nav a.hide-m{display:none}.top nav a.link{padding:.5em .3em;font-size:.9rem}.top nav .btn.sm{padding:.5em .9em}}
+@media (max-width:400px){.top nav a.link{display:none}}
+
+/* Secciones landing */
+section{padding:72px 0}
+section.alt{background:var(--bg-2)}
+.eyebrow{display:block;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:700;color:var(--accent-2);margin-bottom:.6em}
+.hero{padding:40px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30% -20% auto auto;width:620px;height:620px;background:radial-gradient(circle,rgba(255,111,125,.22),transparent 65%);pointer-events:none}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.hero p.lead{font-size:1.12rem;color:var(--muted);max-width:36em}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.4rem 0 1rem}
+.trust{font-size:.85rem;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}.hero{padding:72px 0 96px}}
+
+/* Mockup teléfono */
+.mock{position:relative;margin-inline:auto;width:min(320px,86vw)}
+.phone{border-radius:38px;padding:12px;background:#0d070b;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 6px rgba(255,255,255,.03)}
+.screen{border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#2b1522,#170b13);padding:26px 18px;text-align:center;min-height:470px}
+.screen .ph{height:150px;border-radius:16px;margin:14px 0;background:linear-gradient(135deg,#ff8a7a 0%,#c74b7a 55%,#5b2a6e 100%);position:relative;overflow:hidden}
+.screen .ph::after{content:"♥";position:absolute;inset:0;display:grid;place-items:center;font-size:3rem;color:rgba(255,255,255,.55)}
+.mini-count{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.mini-count div{background:rgba(255,255,255,.06);border-radius:10px;padding:8px 0}
+.mini-count b{display:block;font:700 1.3rem var(--serif)}
+.mini-count span{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.mock .float{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:.55em .8em;font-size:.8rem;box-shadow:0 10px 30px -10px #000;display:flex;gap:.45em;align-items:center}
+.mock .f1{left:-18px;top:90px}.mock .f2{right:-14px;bottom:-14px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(95,211,154,.2)}
+
+/* Grillas */
+.grid{display:grid;gap:16px}
+@media (min-width:640px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:960px){.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;background:rgba(255,179,107,.12);margin-bottom:12px}
+.card h3{margin-bottom:.3em}
+.card p{color:var(--muted);margin:0;font-size:.95rem}
+.step .num{font:700 2.4rem var(--serif);color:transparent;-webkit-text-stroke:1.5px var(--accent);line-height:1;margin-bottom:10px}
+.list-check{list-style:none;padding:0;margin:0 0 1.2rem;display:grid;gap:.6rem}
+.list-check li{display:flex;gap:.6em;align-items:flex-start}
+.list-check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:rgba(95,211,154,.15);color:var(--ok);font-weight:700;font-size:.8rem;margin-top:2px}
+.head{max-width:640px;margin:0 auto 36px;text-align:center}
+.head p{color:var(--muted)}
+
+/* Testimonios (espacios para contenido real) */
+.testi{border-style:dashed}
+.testi .stars{color:var(--accent-2);letter-spacing:2px}
+.testi q{display:block;font-family:var(--serif);font-style:italic;font-size:1.05rem;margin:.6em 0 1em;color:var(--muted)}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0 18px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;display:flex;justify-content:space-between;gap:1rem;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--accent);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-bottom:16px;margin:0}
+
+/* Oferta */
+.offer{max-width:560px;margin:0 auto;text-align:center;border-radius:26px;padding:34px 26px;background:linear-gradient(180deg,rgba(255,111,125,.14),rgba(255,179,107,.05));border:1px solid rgba(255,111,125,.4)}
+.price{font:700 clamp(3rem,12vw,4.4rem)/1 var(--serif);margin:.2em 0}
+.price small{font:500 1rem var(--sans);color:var(--muted)}
+.offer .list-check{text-align:left;max-width:360px;margin-inline:auto}
+.after{display:grid;gap:10px;text-align:left;max-width:380px;margin:1.5rem auto}
+.after div{display:flex;gap:.8em;align-items:center}
+.after b{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);font-size:.85rem}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--muted);font-size:.9rem}
+footer.site .wrap{display:grid;gap:18px}
+footer.site nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+footer.site nav a{text-decoration:none;padding:.3em 0}
+footer.site nav a:hover{color:var(--text)}
+.reclamos{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--line);border-radius:10px;padding:.5em .9em;text-decoration:none;width:max-content}
+@media (min-width:768px){footer.site{padding-bottom:40px}footer.site .wrap{grid-template-columns:1fr auto;align-items:center}}
+
+/* CTA fija móvil + WhatsApp */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(22,12,20,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;transform:translateY(110%);transition:transform .3s}
+.sticky-cta.show{transform:none}
+.sticky-cta .p{font-size:.8rem;color:var(--muted);line-height:1.2}
+.sticky-cta .p b{display:block;color:var(--text);font-size:1.05rem}
+.sticky-cta .btn{flex:1}
+@media (min-width:768px){.sticky-cta{display:none}}
+.wa{position:fixed;right:16px;bottom:88px;z-index:41;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 25px -8px rgba(0,0,0,.6);text-decoration:none}
+.wa svg{width:30px;height:30px;fill:#fff}
+@media (min-width:768px){.wa{bottom:24px;right:24px}}
+
+/* ===== EDITOR ===== */
+.editor{padding:28px 0 120px}
+.editor .wrap{max-width:720px}
+.steps{display:flex;gap:6px;margin:10px 0 26px}
+.steps span{flex:1;height:6px;border-radius:9px;background:var(--line);transition:background .3s}
+.steps span.on{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.step-label{font-size:.85rem;color:var(--muted);margin-bottom:4px}
+.field{display:grid;gap:6px;margin-bottom:18px}
+.field label{font-weight:700;font-size:.95rem}
+.field .hint{font-size:.82rem;color:var(--muted)}
+input[type=text],input[type=date],input[type=time],input[type=url],input[type=tel],textarea,select{width:100%;min-height:50px;padding:.75em 1em;border-radius:14px;border:1.5px solid var(--line);background:#1b0f18;color:var(--text);font:1rem var(--sans)}
+textarea{min-height:220px;resize:vertical;line-height:1.6}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
+input[type=date]{color-scheme:dark}input[type=time]{color-scheme:dark}
+.row2{display:grid;gap:0 14px}
+@media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.err{color:#ff9aa5;font-size:.85rem;min-height:1.2em}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;min-height:210px;border:2px dashed rgba(255,111,125,.45);border-radius:22px;padding:28px 18px;text-align:center;cursor:pointer;background:linear-gradient(180deg,rgba(255,111,125,.08),rgba(255,179,107,.03));transition:border-color .2s,background .2s,transform .15s;-webkit-tap-highlight-color:transparent}
+.drop:hover,.drop.over{border-color:var(--accent);background:rgba(255,111,125,.12)}
+.drop:active{transform:scale(.99)}
+.drop:focus-within{outline:3px solid var(--accent-2);outline-offset:3px}
+.drop .cam{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 12px 30px -10px rgba(255,111,125,.8)}
+.drop .cam svg{width:32px;height:32px;stroke:#2a0a12;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.drop .cta{display:inline-flex;align-items:center;min-height:48px;padding:.7em 1.4em;border-radius:999px;background:var(--text);color:#2a0a12;font-weight:700}
+.drop .sub{font-size:.85rem;color:var(--muted)}
+.drop.full{opacity:.5;pointer-events:none}
+.drop.busy .cta{opacity:.6}
+.photo-count{display:flex;justify-content:space-between;align-items:center;margin:14px 0 0;font-size:.9rem;color:var(--muted)}
+.thumbs .add{display:grid;place-items:center;border:2px dashed var(--line);background:transparent;color:var(--muted);font-size:1.8rem;cursor:pointer;border-radius:12px;aspect-ratio:1}
+.thumbs .add:hover{border-color:var(--accent);color:var(--accent)}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.thumbs figure{margin:0;position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--card)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs figure button{position:absolute;top:6px;right:6px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:1rem;cursor:pointer}
+.thumbs .cover{position:absolute;left:6px;bottom:6px;font-size:.7rem;background:rgba(0,0,0,.65);padding:.15em .5em;border-radius:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.chip{min-height:40px;padding:.4em 1em;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--text);font:500 .9rem var(--sans);cursor:pointer}
+.chip.on,.chip:hover{border-color:var(--accent);background:rgba(255,111,125,.1)}
+.nav-steps{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(22,12,20,.95);border-top:1px solid var(--line);padding:12px 0 calc(12px + env(safe-area-inset-bottom))}
+.nav-steps .wrap{display:flex;gap:10px;max-width:720px}
+.nav-steps .btn{flex:1}
+.summary{display:grid;gap:8px;font-size:.95rem}
+.summary div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line);padding:8px 0}
+.summary div span:first-child{color:var(--muted)}
+.summary div span:last-child{text-align:right;word-break:break-word}
+
+/* Pago */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.tab{min-height:56px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--text);font:700 .95rem var(--sans);cursor:pointer}
+.tab.on{border-color:var(--accent);background:rgba(255,111,125,.1)}
+.qr-ph{width:200px;aspect-ratio:1;margin:12px auto;border-radius:14px;border:2px dashed var(--line);display:grid;place-items:center;text-align:center;font-size:.8rem;color:var(--muted);padding:12px}
+.note{font-size:.85rem;color:var(--muted);background:rgba(255,179,107,.08);border:1px solid rgba(255,179,107,.25);border-radius:12px;padding:12px 14px}
+.test-box{margin-top:22px;border:1px dashed #6b5a2a;border-radius:14px;padding:14px;background:rgba(255,214,107,.05)}
+
+/* Listo */
+.qr-box{background:#fff;border-radius:20px;padding:18px;width:min(280px,80vw);margin:0 auto 18px}
+.qr-box canvas{width:100%;height:auto;display:block;image-rendering:pixelated}
+.share{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.my-list{display:grid;gap:12px}
+.my-item{display:flex;gap:14px;align-items:center}
+.my-item .th{width:64px;height:64px;border-radius:12px;flex:none;background:linear-gradient(135deg,var(--accent),#5b2a6e) center/cover}
+.my-item .info{flex:1;min-width:0}
+.my-item .info b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:.72rem;padding:.15em .6em;border-radius:6px;font-weight:700}
+.tag.ok{background:rgba(95,211,154,.15);color:var(--ok)}
+.tag.pend{background:rgba(255,179,107,.15);color:var(--accent-2)}
+
+/* ===== PÁGINA DE LA PAREJA ===== */
+body.lp{background:#12090f}
+.lp-bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;background:rgba(18,9,15,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);font-size:.85rem}
+.lp-bar .langs{display:flex;gap:2px}
+.lp-bar .langs button{min-width:38px;min-height:36px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:700 .78rem var(--sans);cursor:pointer}
+.lp-bar .langs button.on{background:var(--card);color:var(--text)}
+.lp-banner{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#2a0a12;text-align:center;font-weight:700;font-size:.85rem;padding:8px}
+.lp-main{max-width:640px;margin:0 auto;padding:22px 18px 60px;position:relative;z-index:1}
+.music{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:28px}
+.music .disc{flex:none;width:58px;height:58px;border-radius:50%;background:conic-gradient(from 0deg,#2a1824,#5b2a6e,#ff6f7d,#2a1824);position:relative}
+.music .disc::after{content:"";position:absolute;inset:22px;border-radius:50%;background:#12090f}
+.music.playing .disc{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.music .t{flex:1;min-width:0}
+.music .t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music .t small{color:var(--muted)}
+.music .play{flex:none;width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#2a0a12;font-size:1.1rem}
+.player-slot iframe{width:100%;border:0;border-radius:14px;margin:-14px 0 28px}
+.music-hint{font-size:.82rem;color:var(--muted);text-align:center;margin:-18px 0 26px}
+.names{text-align:center;margin:10px 0 8px}
+.names h1{font-size:clamp(2.6rem,12vw,4.2rem);margin:0}
+.names .amp{display:block;font-family:var(--serif);font-style:italic;color:var(--accent);font-size:1.8rem;line-height:1.2}
+.since{text-align:center;color:var(--muted);margin-bottom:30px}
+.since b{color:var(--text);display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 34px}
+.gallery button{padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;background:var(--card)}
+.gallery button:first-child{grid-column:span 2;aspect-ratio:4/3}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery button:hover img{transform:scale(1.04)}
+.demo-photo{width:100%;height:100%;display:grid;place-items:center;font-size:2.4rem;color:rgba(255,255,255,.6)}
+.counter-box{background:linear-gradient(180deg,rgba(255,111,125,.12),rgba(42,24,36,.6));border:1px solid var(--line);border-radius:24px;padding:26px 16px;text-align:center;margin-bottom:34px}
+.counter-box h2{font-size:1.6rem;margin-bottom:.2em}
+.counter{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.counter div{background:rgba(0,0,0,.25);border-radius:16px;padding:14px 4px}
+.counter b{display:block;font:700 clamp(1.8rem,8vw,2.4rem)/1.1 var(--serif);font-variant-numeric:tabular-nums}
+.counter span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.letter{background:#fbf3ea;color:#3b2230;border-radius:20px;padding:30px 24px;font-family:var(--serif);font-size:1.08rem;line-height:1.75;box-shadow:0 30px 60px -30px #000;margin-bottom:34px;position:relative}
+.letter::before{content:"“";position:absolute;top:-10px;left:16px;font-size:5rem;line-height:1;color:var(--accent)}
+.letter p{margin:0 0 1em;white-space:pre-line}
+.letter .sign{text-align:right;font-style:italic;margin:1.2em 0 0}
+.lp-share{text-align:center;margin-bottom:34px}
+.lp-share .share{margin-top:12px}
+.lp-foot{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hearts span{position:absolute;bottom:-40px;color:var(--accent);opacity:.0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.35}100%{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:94vw;max-height:90vh}
+dialog.lightbox::backdrop{background:rgba(0,0,0,.88)}
+dialog.lightbox img{max-width:94vw;max-height:84vh;border-radius:14px;margin:auto}
+dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
+
+/* Reveal sutil */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:#fff;color:#2a0a12;font-weight:700;padding:.7em 1.2em;border-radius:999px;opacity:0;transition:.25s;z-index:99;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="app" aria-live="polite"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- ============ VISTA: INICIO (landing de venta) ============ -->
+<template id="tpl-home">
+<header class="top">
+  <div class="wrap">
+    <a href="#/" class="logo" aria-label="Loren Ipsum, inicio"><i>♥</i> {{BRAND}}</a>
+    <nav aria-label="Principal">
+      <a href="#/mis-paginas" class="link hide-m">Mis páginas</a>
+      <a href="#/demo" class="link">Ver ejemplo</a>
+      <a href="#/crear" class="btn sm" data-track="cta_header">Crear mi regalo</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <!-- HERO: propuesta de valor -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill">💝 Un regalo digital listo en minutos</span>
+        <h1 style="margin-top:.5em">Regala una página con <span class="grad">toda su historia de amor</span></h1>
+        <p class="lead">Sube sus fotos, escribe sus nombres y la fecha en que empezó todo. Creamos una página privada con su canción, una carta y un contador que muestra en vivo cuánto tiempo llevan juntos.</p>
+        <div class="ctas">
+          <a href="#/crear" class="btn" data-track="cta_hero">Crear mi regalo · {{PRICE}}</a>
+          <a href="#/demo" class="btn ghost">Ver ejemplo</a>
+        </div>
+        <p class="trust">🔒 Pago con Yape, Plin o tarjeta · Pago único · Sin suscripción</p>
+        <div class="badges"><span class="pill">⚡ Listo en 2 minutos</span><span class="pill">📱 Se abre con un QR</span></div>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="phone"><div class="screen">
+          <small class="muted">Nuestra historia</small>
+          <div style="font:700 1.6rem var(--serif);margin-top:4px">Ana &amp; Mateo</div>
+          <div class="ph"></div>
+          <small class="muted">Juntos desde hace</small>
+          <div class="mini-count"><div><b id="mk-y">4</b><span>años</span></div><div><b id="mk-m">2</b><span>meses</span></div><div><b id="mk-d">11</b><span>días</span></div></div>
+          <p style="font-family:var(--serif);font-style:italic;margin:16px 0 0;color:var(--muted);font-size:.9rem">“Cada día contigo es mi lugar favorito…”</p>
+        </div></div>
+        <div class="float f1"><span class="dot"></span> Página activa</div>
+        <div class="float f2">📷 Escanea el QR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ INCLUYE -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Qué incluye</span><h2>Un regalo que se siente, no solo se ve</h2></div>
+      <div class="grid g4">
+        <div class="card rv"><div class="ico">⏳</div><h3>Contador en vivo</h3><p>Años, meses, días, horas y minutos juntos, actualizándose en tiempo real.</p></div>
+        <div class="card rv"><div class="ico">📸</div><h3>Sus fotos</h3><p>Una galería con sus momentos favoritos.</p></div>
+        <div class="card rv"><div class="ico">💌</div><h3>Una carta</h3><p>Escríbela tú o usa una sugerencia y personalízala.</p></div>
+        <div class="card rv"><div class="ico">🎶</div><h3>Su canción</h3><p>La canción que los representa, lista para reproducir.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section>
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Así de simple</span><h2>¿Cómo funciona?</h2><p>Tres pasos y tu sorpresa está lista.</p></div>
+      <div class="grid g3">
+        <div class="card step rv"><div class="num">01</div><h3>Personaliza</h3><p>Nombres, fecha, fotos, canción y carta. Ves cómo queda antes de pagar.</p></div>
+        <div class="card step rv"><div class="num">02</div><h3>Recibe tu QR</h3><p>Al confirmar el pago se activa tu página y obtienes un QR y una tarjeta para imprimir o enviar.</p></div>
+        <div class="card step rv"><div class="num">03</div><h3>Sorprende</h3><p>Tu pareja escanea el QR y descubre su historia, su canción y tu carta.</p></div>
+      </div>
+      <p class="center" style="margin-top:28px"><a href="#/crear" class="btn" data-track="cta_pasos">Crear mi regalo ahora</a></p>
+    </div>
+  </section>
+
+  <!-- TODO INCLUIDO -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Todo incluido</span><h2>Un regalo completo</h2><p>Cada detalle pensado para que sea un momento especial.</p></div>
+      <div class="grid g3">
+        <div class="card rv"><div class="ico">🔳</div><h3>QR personalizado</h3><p>Un código único que abre su página.</p></div>
+        <div class="card rv"><div class="ico">🖨️</div><h3>Tarjeta para imprimir</h3><p>Descárgala y regálala en físico o por WhatsApp.</p></div>
+        <div class="card rv"><div class="ico">🔐</div><h3>Página privada</h3><p>Solo la ve quien tiene el enlace o el QR.</p></div>
+        <div class="card rv"><div class="ico">🌎</div><h3>4 idiomas</h3><p>Español, inglés, portugués e italiano.</p></div>
+        <div class="card rv"><div class="ico">💬</div><h3>Fácil de compartir</h3><p>Por WhatsApp, redes o copiando el enlace.</p></div>
+        <div class="card rv"><div class="ico">⚡</div><h3>Acceso inmediato</h3><p>Se activa apenas confirmamos tu pago.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRUEBA SOCIAL: reemplazar por testimonios REALES de clientes (con su permiso) -->
+  <section>
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Historias reales</span><h2>Lo que dicen quienes ya sorprendieron</h2></div>
+      <div class="grid g3">
+        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 1]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
+        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 2]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
+        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 3]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIANZA + FAQ -->
+  <section class="alt">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Confianza</span><h2>Compra tranquilo</h2></div>
+      <div class="grid g4" style="margin-bottom:56px">
+        <div class="card rv"><div class="ico">🔒</div><h3>Pago seguro</h3><p>Yape, Plin o tarjeta.</p></div>
+        <div class="card rv"><div class="ico">🚫</div><h3>Sin suscripción</h3><p>Pagas una sola vez.</p></div>
+        <div class="card rv"><div class="ico">⚡</div><h3>En 2 minutos</h3><p>Desde tu celular.</p></div>
+        <div class="card rv"><div class="ico">💬</div><h3>Soporte</h3><p>Te ayudamos por WhatsApp.</p></div>
+      </div>
+      <div class="head"><h2>Preguntas frecuentes</h2></div>
+      <div class="faq">
+        <details><summary>¿Cómo pago?</summary><p>Con Yape o Plin (envías tu comprobante por WhatsApp y activamos tu página) o con tarjeta de débito o crédito.</p></details>
+        <details><summary>¿Puedo ver cómo queda antes de pagar?</summary><p>Sí. Armas toda la página y la ves en vista previa. Solo pagas cuando te guste.</p></details>
+        <details><summary>¿Cuánto tiempo dura la página?</summary><p>[EDITAR: indica el plazo real de vigencia que ofrecerás, por ejemplo “para siempre” o “2 años”.]</p></details>
+        <details><summary>¿Puedo cambiar algo después?</summary><p>Sí, puedes editar textos, fotos y canción desde “Mis páginas”.</p></details>
+        <details><summary>¿Quién puede ver la página?</summary><p>Solo quien tenga el enlace o escanee el QR. No aparece en buscadores.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section>
+    <div class="wrap">
+      <div class="offer rv">
+        <span class="eyebrow">Oferta</span>
+        <h2>Todo esto por</h2>
+        <div class="price">{{PRICE}} <small>pago único</small></div>
+        <p class="muted">Sin mensualidades. Sin costos ocultos.</p>
+        <ul class="list-check">
+          <li>Página privada personalizada</li>
+          <li>Contador del tiempo juntos en vivo</li>
+          <li>Fotos, canción y carta</li>
+          <li>Código QR y tarjeta para imprimir</li>
+          <li>Disponible en 4 idiomas</li>
+        </ul>
+        <a href="#/crear" class="btn block" data-track="cta_oferta">Crear mi regalo ahora</a>
+        <div class="after">
+          <p class="center" style="margin:0 0 4px"><b>¿Qué pasa después del pago?</b></p>
+          <div><b>1</b> Se activa tu página</div>
+          <div><b>2</b> Recibes tu código QR</div>
+          <div><b>3</b> Descargas tu tarjeta lista para regalar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="alt center">
+    <div class="wrap">
+      <h2 class="rv">No esperes una fecha especial para decirlo</h2>
+      <p class="muted rv">Toma menos de 2 minutos.</p>
+      <a href="#/crear" class="btn" data-track="cta_cierre">Quiero mi página romántica</a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER con enlaces legales (Perú) -->
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <a href="#/" class="logo"><i>♥</i> {{BRAND}}</a>
+      <p style="margin:.5em 0 0">© <span id="yr"></span> {{BRAND}}. Todos los derechos reservados.</p>
+      <!-- EDITAR: razón social y RUC -->
+      <p style="margin:0;font-size:.8rem">[RAZÓN SOCIAL] · RUC [00000000000]</p>
+    </div>
+    <div style="display:grid;gap:12px">
+      <nav aria-label="Legal">
+        <a href="[URL_TERMINOS]">Términos y condiciones</a>
+        <a href="[URL_PRIVACIDAD]">Política de privacidad</a>
+        <a href="[URL_CAMBIOS]">Cambios y devoluciones</a>
+        <a href="#" data-wa>Contacto</a>
+      </nav>
+      <!-- EDITAR: enlace a tu Libro de Reclamaciones virtual -->
+      <a class="reclamos" href="[URL_LIBRO_RECLAMACIONES]">📕 Libro de Reclamaciones</a>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="p">Regalo digital<b>{{PRICE}}</b></div>
+  <a href="#/crear" class="btn" data-track="cta_sticky">Crear mi regalo</a>
+</div>
+<a class="wa" href="#" data-wa aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
+</template>
+
+<script>
+/* ===================================================================
+   CONFIGURACIÓN — EDITAR AQUÍ
+   =================================================================== */
+const CONFIG = {
+  brand: "Loren Ipsum",
+  price: "S/ 12",                      // EDITAR: precio que se muestra
+  priceNumber: 12,                     // EDITAR: precio numérico (para el mensaje de pago)
+  whatsapp: "51900000000",             // EDITAR: tu WhatsApp con código de país, sin + ni espacios
+  yape:  { number: "[TU_NÚMERO_YAPE]", holder: "[TITULAR_YAPE]", qrImage: "" },   // qrImage: URL de la imagen de tu QR de Yape
+  plin:  { number: "[TU_NÚMERO_PLIN]", holder: "[TITULAR_PLIN]", qrImage: "" },
+  cardPaymentUrl: "",                  // EDITAR: enlace de pago con tarjeta de tu pasarela (link de pago). Vacío = se oculta
+  maxPhotos: 6,
+  testMode: true                       // true = muestra el botón "Simular pago aprobado". PONER EN false AL PUBLICAR
+};
+
+/* ===================================================================
+   UTILIDADES
+   =================================================================== */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = () => Math.random().toString(36).slice(2, 8) + Date.now().toString(36).slice(-4);
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 2200); }
+function track(ev, data){ try{ window.fbq && fbq("trackCustom", ev, data); window.gtag && gtag("event", ev, data); }catch(e){} }
+
+/* UTM: se guardan al entrar y se adjuntan a los mensajes de WhatsApp */
+(function saveUtm(){
+  const p = new URLSearchParams(location.search); const u = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(k => p.get(k) && (u[k] = p.get(k)));
+  if (Object.keys(u).length) sessionStorage.setItem("li_utm", JSON.stringify(u));
+})();
+function utmText(){ try{ const u = JSON.parse(sessionStorage.getItem("li_utm") || "{}"); return Object.keys(u).length ? "\n(" + Object.values(u).join(" / ") + ")" : ""; }catch(e){ return ""; } }
+function waLink(text){ return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text + utmText()); }
+function baseUrl(){ return location.href.split("#")[0]; }
+
+/* ===================================================================
+   ALMACENAMIENTO (prototipo: IndexedDB del navegador)
+   Para producción: reemplazar Store por llamadas a tu backend
+   (ej. Supabase/Firebase) manteniendo los mismos métodos.
+   =================================================================== */
+const Store = {
+  _db: null,
+  _mem: new Map(),   // respaldo en memoria si el navegador bloquea IndexedDB (ej. vista previa de archivos)
+  open(){ return this._db || (this._db = new Promise((res, rej) => {
+    if (!window.indexedDB) return rej(new Error("sin indexedDB"));
+    const r = indexedDB.open("loren-ipsum", 1);
+    r.onupgradeneeded = () => r.result.createObjectStore("pages", { keyPath: "id" });
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  })); },
+  async tx(mode, fn){ let db; try{ db = await this.open(); }catch(e){ return this.memTx(fn); } return new Promise((res, rej) => { const t = db.transaction("pages", mode); const s = t.objectStore("pages"); const out = fn(s); t.oncomplete = () => res(out && out.result); t.onerror = () => rej(t.error); }); },
+  memTx(fn){ const m = this._mem; const s = { get: id => ({ result: m.get(id) }), getAll: () => ({ result: [...m.values()] }), put: v => (m.set(v.id, v), {}), delete: id => (m.delete(id), {}) }; const o = fn(s); return Promise.resolve(o && o.result); },
+  get(id){ return this.tx("readonly", s => s.get(id)); },
+  all(){ return this.tx("readonly", s => s.getAll()); },
+  save(p){ p.updated = Date.now(); return this.tx("readwrite", s => s.put(p)); },
+  del(id){ return this.tx("readwrite", s => s.delete(id)); }
+};
+
+/* Enlace portátil: los textos de la página (sin fotos) van comprimidos dentro del enlace.
+   Así el QR funciona desde cualquier celular aunque el prototipo no tenga servidor. */
+const b64u = {
+  enc: bytes => { let s = ""; bytes.forEach(b => s += String.fromCharCode(b)); return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); },
+  dec: str => { str = str.replace(/-/g,"+").replace(/_/g,"/"); while (str.length % 4) str += "="; const bin = atob(str); return Uint8Array.from(bin, c => c.charCodeAt(0)); }
+};
+async function pack(obj){
+  const data = new TextEncoder().encode(JSON.stringify(obj));
+  if (!window.CompressionStream) return "u" + b64u.enc(data);
+  const buf = await new Response(new Blob([data]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer();
+  return "z" + b64u.enc(new Uint8Array(buf));
+}
+async function unpack(str){
+  const kind = str[0], bytes = b64u.dec(str.slice(1));
+  let data = bytes;
+  if (kind === "z") data = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).arrayBuffer());
+  return JSON.parse(new TextDecoder().decode(data));
+}
+function portableData(p){ return { a: p.a, b: p.b, d: p.date, t: p.time || "", s: p.song, l: p.letter, g: p.sign, f: p.from, lg: p.lang || "es" }; }
+function fromPortable(o){ return { a: o.a, b: o.b, date: o.d, time: o.t, song: o.s || {}, letter: o.l, sign: o.g, from: o.f, lang: o.lg, photos: [], paid: true, portable: true }; }
+async function shareUrl(p){ return baseUrl() + "#/v/" + await pack(portableData(p)); }
+
+/* ===================================================================
+   QR (librería qrcode-generator, MIT, incluida abajo)
+   =================================================================== */
+function qrCanvas(text, size = 600, margin = 2){
+  qrcode.stringToBytes = qrcode.stringToBytesFuncs["UTF-8"];
+  const qr = qrcode(0, "L"); qr.addData(text); qr.make();
+  const n = qr.getModuleCount(), cells = n + margin * 2, px = Math.floor(size / cells), real = px * cells;
+  const c = document.createElement("canvas"); c.width = c.height = real;
+  const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, real, real); x.fillStyle = "#1b0f18";
+  for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) x.fillRect((col + margin) * px, (r + margin) * px, px, px);
+  return c;
+}
+function download(canvas, name){ const a = document.createElement("a"); a.download = name; a.href = canvas.toDataURL("image/png"); a.click(); }
+
+/* Tarjeta imprimible 1080x1350 */
+function cardCanvas(p, url){
+  const W = 1080, H = 1350, c = document.createElement("canvas"); c.width = W; c.height = H; const x = c.getContext("2d");
+  const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, "#2b1522"); g.addColorStop(1, "#12090f"); x.fillStyle = g; x.fillRect(0, 0, W, H);
+  x.strokeStyle = "rgba(255,179,107,.55)"; x.lineWidth = 4; x.strokeRect(40, 40, W - 80, H - 80);
+  x.textAlign = "center"; x.fillStyle = "#ff6f7d"; x.font = "64px Georgia, serif"; x.fillText("♥", W / 2, 170);
+  x.fillStyle = "#c9aebb"; x.font = "500 34px 'DM Sans', Arial, sans-serif"; x.fillText("Para " + (p.b || ""), W / 2, 240);
+  x.fillStyle = "#fbeff3"; let fs = 88; const title = `${p.a} & ${p.b}`; do { x.font = `700 ${fs}px Fraunces, Georgia, serif`; fs -= 4; } while (x.measureText(title).width > W - 180 && fs > 40); x.fillText(title, W / 2, 350);
+  const q = qrCanvas(url, 560, 2); const qs = 560; x.fillStyle = "#fff"; roundRect(x, (W - qs) / 2 - 20, 420, qs + 40, qs + 40, 36); x.fill(); x.drawImage(q, (W - qs) / 2, 440, qs, qs);
+  x.fillStyle = "#fbeff3"; x.font = "500 40px 'DM Sans', Arial, sans-serif"; x.fillText("Escanea para descubrir nuestra historia", W / 2, 1110);
+  x.fillStyle = "#c9aebb"; x.font = "italic 34px Georgia, serif"; x.fillText("Juntos desde " + fmtDate(p.date, "es"), W / 2, 1170);
+  x.fillStyle = "rgba(201,174,187,.7)"; x.font = "26px 'DM Sans', Arial, sans-serif"; x.fillText(CONFIG.brand, W / 2, 1260);
+  return c;
+}
+function roundRect(x, X, Y, w, h, r){ x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); }
+
+/* ===================================================================
+   FECHAS Y CONTADOR
+   =================================================================== */
+function startDate(p){ const [y, m, d] = (p.date || "2020-01-01").split("-").map(Number); const [hh, mm] = (p.time || "00:00").split(":").map(Number); return new Date(y, m - 1, d, hh || 0, mm || 0); }
+function diff(from, to = new Date()){
+  if (to < from) return { y: 0, mo: 0, d: 0, h: 0, mi: 0, s: 0 };
+  let y = to.getFullYear() - from.getFullYear(), mo = to.getMonth() - from.getMonth();
+  let anchor = new Date(from); anchor.setFullYear(from.getFullYear() + y); anchor.setMonth(from.getMonth() + mo);
+  const fix = () => { anchor = new Date(from); anchor.setFullYear(from.getFullYear() + y); anchor.setMonth(from.getMonth() + mo); };
+  while (mo < 0) { y--; mo += 12; } fix();
+  while (anchor > to) { mo--; if (mo < 0) { y--; mo += 12; } fix(); }
+  let ms = to - anchor; const d = Math.floor(ms / 864e5); ms -= d * 864e5;
+  const h = Math.floor(ms / 36e5); ms -= h * 36e5; const mi = Math.floor(ms / 6e4); ms -= mi * 6e4;
+  return { y, mo, d, h, mi, s: Math.floor(ms / 1000) };
+}
+const pad = n => String(n).padStart(2, "0");
+function fmtDate(iso, lang){ if (!iso) return ""; const loc = { es: "es-PE", en: "en-US", pt: "pt-BR", it: "it-IT" }[lang] || "es-PE"; const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d).toLocaleDateString(loc, { day: "numeric", month: "long", year: "numeric" }); }
+
+/* ===================================================================
+   TEXTOS DE LA PÁGINA DE LA PAREJA (4 idiomas)
+   =================================================================== */
+const I18N = {
+  es: { demo: "Esto es un ejemplo", preview: "Vista previa · aún no está activa", create: "Crear la mía", hint: "Toca el botón para escuchar la canción elegida para ti", together: "Juntos desde", time: "Nuestro tiempo juntos", sub: "Cada segundo cuenta cuando estás enamorado", y: "años", mo: "meses", d: "días", h: "horas", mi: "min", s: "seg", share: "Comparte el amor", qr: "Descargar QR", copy: "Copiar enlace", copied: "Enlace copiado", love: "Con todo mi amor,", made: "Hecho con", liked: "¿Te gustó? Crea la tuya", play: "Reproducir", close: "Cerrar", photos: "Nuestros momentos", nolink: "Canción dedicada" },
+  en: { demo: "This is an example", preview: "Preview · not active yet", create: "Create mine", hint: "Tap the button to play the song chosen for you", together: "Together since", time: "Our time together", sub: "Every second counts when you're in love", y: "years", mo: "months", d: "days", h: "hours", mi: "min", s: "sec", share: "Share the love", qr: "Download QR", copy: "Copy link", copied: "Link copied", love: "With all my love,", made: "Made with", liked: "Liked it? Create yours", play: "Play", close: "Close", photos: "Our moments", nolink: "Dedicated song" },
+  pt: { demo: "Isto é um exemplo", preview: "Prévia · ainda não ativa", create: "Criar a minha", hint: "Toque no botão para ouvir a música escolhida para você", together: "Juntos desde", time: "Nosso tempo juntos", sub: "Cada segundo conta quando se está apaixonado", y: "anos", mo: "meses", d: "dias", h: "horas", mi: "min", s: "seg", share: "Compartilhe o amor", qr: "Baixar QR", copy: "Copiar link", copied: "Link copiado", love: "Com todo o meu amor,", made: "Feito com", liked: "Gostou? Crie a sua", play: "Tocar", close: "Fechar", photos: "Nossos momentos", nolink: "Música dedicada" },
+  it: { demo: "Questo è un esempio", preview: "Anteprima · non ancora attiva", create: "Crea la mia", hint: "Tocca il pulsante per ascoltare la canzone scelta per te", together: "Insieme dal", time: "Il nostro tempo insieme", sub: "Ogni secondo conta quando sei innamorato", y: "anni", mo: "mesi", d: "giorni", h: "ore", mi: "min", s: "sec", share: "Condividi l'amore", qr: "Scarica QR", copy: "Copia link", copied: "Link copiato", love: "Con tutto il mio amore,", made: "Fatto con", liked: "Ti è piaciuto? Crea la tua", play: "Riproduci", close: "Chiudi", photos: "I nostri momenti", nolink: "Canzone dedicata" }
+};
+
+/* Página de ejemplo (EDITAR textos del demo si quieres) */
+const DEMO = {
+  id: "demo", a: "Ana", b: "Mateo", from: "Ana", date: "2021-06-14", time: "20:00",
+  song: { title: "[Nombre de la canción]", artist: "[Artista]", url: "" },
+  letter: "Mi querido Mateo,\n\nCada día a tu lado se ha vuelto mi parte favorita de la vida. Desde aquella noche de junio supe que algo bonito estaba empezando.\n\nGracias por las risas, por la paciencia y por elegirme incluso en los días difíciles. Contigo aprendí que el amor no es perfecto, es real.\n\nQue sigan sumando los segundos en este contador, porque quiero vivirlos todos contigo.",
+  sign: "Ana", photos: [], paid: true, demo: true, lang: "es"
+};
+
+/* ===================================================================
+   SUGERENCIAS DE CARTA (sin IA, plantillas editables)
+   Para IA real: conectar una API en tu backend; nunca pongas la clave aquí.
+   =================================================================== */
+const LETTERS = {
+  romantica: (a, b, f) => `Mi amor, ${b}:\n\nDesde el ${f} mi vida tiene otro color. Cada día a tu lado me confirma que encontrar a alguien como tú fue lo mejor que me pudo pasar.\n\nGracias por tu paciencia, por tus abrazos y por hacer de lo simple algo especial. Contigo aprendí que el amor se construye todos los días.\n\nQuiero seguir sumando momentos, viajes, risas y sueños contigo. Te amo hoy y te voy a amar mañana.`,
+  divertida: (a, b, f) => `${b}:\n\nOficialmente me aguantas desde el ${f}, y eso ya merece un premio 🏆.\n\nGracias por reírte de mis chistes malos, por compartir la comida (casi siempre) y por ser mi persona favorita para no hacer nada.\n\nEste contador no se detiene, igual que las ganas que tengo de seguir haciendo locuras contigo. Te quiero muchísimo.`,
+  breve: (a, b, f) => `${b}, desde el ${f} eres mi lugar seguro.\n\nGracias por cada día. Te elijo hoy y siempre.`,
+  aniversario: (a, b, f) => `Feliz aniversario, ${b}:\n\nHoy celebramos todo lo que hemos vivido desde el ${f}. Los buenos momentos, los retos que superamos juntos y todo lo que aprendimos el uno del otro.\n\nGracias por caminar a mi lado. Que este sea solo un capítulo más de nuestra historia.`
+};
+
+/* ===================================================================
+   ROUTER
+   =================================================================== */
+let cleanup = [];
+function setView(html, mode = ""){
+  cleanup.forEach(f => f()); cleanup = [];
+  document.body.className = mode; $("#app").innerHTML = html; window.scrollTo(0, 0);
+}
+async function route(){
+  const h = location.hash.replace(/^#\/?/, "");
+  const [r, arg] = [h.split("/")[0], h.split("/").slice(1).join("/")];
+  try{
+    if (r === "crear") return viewEditor(arg);
+    if (r === "pagar") return viewPay(arg);
+    if (r === "listo") return viewDone(arg);
+    if (r === "mis-paginas") return viewMine();
+    if (r === "demo") return viewLove(DEMO);
+    if (r === "p") { const p = await Store.get(arg); return p ? viewLove(p) : viewMissing(); }
+    if (r === "v") { try{ return viewLove(fromPortable(await unpack(arg))); }catch(e){ return viewMissing(); } }
+    return viewHome();
+  }catch(e){ console.error(e); viewMissing(); }
+}
+window.addEventListener("hashchange", route);
+document.addEventListener("click", e => {
+  const w = e.target.closest("[data-wa]"); if (w){ e.preventDefault(); window.open(waLink(`Hola ${CONFIG.brand}, tengo una consulta.`), "_blank", "noopener"); }
+  const t = e.target.closest("[data-track]"); if (t) track("click_cta", { id: t.dataset.track });
+});
+
+/* ===================================================================
+   VISTA: INICIO
+   =================================================================== */
+function viewHome(){
+  const html = $("#tpl-home").innerHTML.replaceAll("{{BRAND}}", esc(CONFIG.brand)).replaceAll("{{PRICE}}", esc(CONFIG.price));
+  setView(html);
+  $("#yr").textContent = new Date().getFullYear();
+  const dd = diff(new Date(2021, 5, 14)); $("#mk-y").textContent = dd.y; $("#mk-m").textContent = dd.mo; $("#mk-d").textContent = dd.d;
+  // Aparición suave
+  const io = new IntersectionObserver(es => es.forEach(x => x.isIntersecting && (x.target.classList.add("in"), io.unobserve(x.target))), { threshold: .12 });
+  $$(".rv").forEach(el => io.observe(el));
+  // CTA fija en móvil después del hero
+  const sc = $("#stickyCta"), onS = () => sc.classList.toggle("show", scrollY > 520);
+  addEventListener("scroll", onS, { passive: true }); onS();
+  cleanup.push(() => { removeEventListener("scroll", onS); io.disconnect(); });
+}
+
+function topBar(back = "#/"){
+  return `<header class="top"><div class="wrap"><a href="#/" class="logo"><i>♥</i> ${esc(CONFIG.brand)}</a><nav><a class="link" href="#/mis-paginas">Mis páginas</a><a class="btn sm ghost" href="${back}">Volver</a></nav></div></header>`;
+}
+function viewMissing(){
+  setView(`${topBar()}<main class="editor"><div class="wrap center"><h1>Página no encontrada</h1><p class="muted">El enlace no es válido o la página se creó en otro dispositivo.</p><a class="btn" href="#/crear">Crear una página</a></div></main>`);
+}
+
+/* ===================================================================
+   VISTA: EDITOR (crear / editar)
+   =================================================================== */
+const STEPS = ["Ustedes", "Fotos", "Canción", "Carta", "Revisar"];
+async function viewEditor(editId){
+  let p = editId ? await Store.get(editId) : null;
+  if (!p){
+    const draft = JSON.parse(localStorage.getItem("li_draft") || "null");
+    p = draft || { id: uid(), a: "", b: "", date: "", time: "", song: { title: "", artist: "", url: "" }, letter: "", sign: "", photos: [], paid: false, lang: "es", created: Date.now() };
+    if (draft && draft.id){ const saved = await Store.get(draft.id); if (saved) p.photos = saved.photos || []; }
+  }
+  let step = 0;
+  const saveDraft = async () => { await Store.save(p); const { photos, ...light } = p; localStorage.setItem("li_draft", JSON.stringify(light)); };
+
+  setView(`${topBar()}<main class="editor"><div class="wrap">
+    <p class="step-label" id="stLbl"></p>
+    <div class="steps" aria-hidden="true">${STEPS.map(() => "<span></span>").join("")}</div>
+    <form id="ed" novalidate></form>
+  </div></main>
+  <div class="nav-steps"><div class="wrap"><button class="btn ghost" id="prev" type="button">Atrás</button><button class="btn" id="next" type="button">Continuar</button></div></div>`);
+
+  const form = $("#ed");
+  const panels = [
+    () => `<h1 style="font-size:1.9rem">Cuéntanos de ustedes 💕</h1>
+      <div class="row2">
+        <div class="field"><label for="fa">Tu nombre</label><input id="fa" type="text" maxlength="30" autocomplete="given-name" value="${esc(p.a)}" placeholder="Ej. Ana"></div>
+        <div class="field"><label for="fb">Nombre de tu pareja</label><input id="fb" type="text" maxlength="30" value="${esc(p.b)}" placeholder="Ej. Mateo"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="fd">¿Desde cuándo están juntos?</label><input id="fd" type="date" value="${esc(p.date)}" max="${new Date().toISOString().slice(0,10)}"></div>
+        <div class="field"><label for="ft">Hora (opcional)</label><input id="ft" type="time" value="${esc(p.time)}"><span class="hint">Para que el contador sea más exacto.</span></div>
+      </div>
+      <div class="field"><label for="fl">Idioma de la página</label><select id="fl">${["es:Español","en:English","pt:Português","it:Italiano"].map(o => { const [v, n] = o.split(":"); return `<option value="${v}" ${p.lang === v ? "selected" : ""}>${n}</option>`; }).join("")}</select><span class="hint">Tu pareja también puede cambiarlo al abrirla.</span></div>
+      <p class="err" id="er"></p>`,
+    () => `<h1 style="font-size:1.9rem">Sus fotos favoritas 📸</h1>
+      <p class="muted">Hasta ${CONFIG.maxPhotos} fotos. La primera será la principal.</p>
+      <label class="drop" id="drop" for="fp">
+        <input id="fp" type="file" accept="image/*" multiple class="sr">
+        <span class="cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.5"/></svg></span>
+        <span class="cta" id="dropCta">Elegir fotos</span>
+        <span class="sub">Desde tu galería o cámara · JPG, PNG o HEIC</span>
+      </label>
+      <p class="photo-count"><span id="pc">0 de ${CONFIG.maxPhotos} fotos</span><span id="pcHint"></span></p>
+      <div class="thumbs" id="th"></div><p class="err" id="er"></p>`,
+    () => `<h1 style="font-size:1.9rem">Su canción 🎶</h1>
+      <p class="muted">La canción que los representa. Pega el enlace de YouTube o Spotify para que se pueda reproducir.</p>
+      <div class="row2">
+        <div class="field"><label for="sn">Canción</label><input id="sn" type="text" maxlength="60" value="${esc(p.song.title)}" placeholder="Nombre de la canción"></div>
+        <div class="field"><label for="sa">Artista</label><input id="sa" type="text" maxlength="60" value="${esc(p.song.artist)}" placeholder="Artista"></div>
+      </div>
+      <div class="field"><label for="su">Enlace (opcional)</label><input id="su" type="url" inputmode="url" value="${esc(p.song.url)}" placeholder="https://youtu.be/... o https://open.spotify.com/track/..."><span class="hint" id="suh">Abre la canción en YouTube o Spotify, toca “Compartir” y copia el enlace.</span></div>
+      <p class="err" id="er"></p>`,
+    () => `<h1 style="font-size:1.9rem">Tu carta 💌</h1>
+      <p class="muted">Escríbela tú o elige una sugerencia y cámbiala a tu gusto.</p>
+      <div class="chips" role="group" aria-label="Sugerencias de carta">
+        <button type="button" class="chip" data-l="romantica">✨ Romántica</button><button type="button" class="chip" data-l="divertida">😄 Divertida</button><button type="button" class="chip" data-l="aniversario">🎉 Aniversario</button><button type="button" class="chip" data-l="breve">💬 Breve</button>
+      </div>
+      <div class="field"><label for="fx">Carta</label><textarea id="fx" maxlength="2000" placeholder="Escribe aquí lo que sientes...">${esc(p.letter)}</textarea><span class="hint"><span id="cnt">0</span>/2000</span></div>
+      <div class="field"><label for="fs">Firma</label><input id="fs" type="text" maxlength="40" value="${esc(p.sign || p.a)}" placeholder="Tu nombre"></div>
+      <p class="err" id="er"></p>`,
+    () => `<h1 style="font-size:1.9rem">Así quedó ✨</h1>
+      <p class="muted">Revisa la vista previa. Puedes volver y cambiar lo que quieras.</p>
+      <div class="card summary" style="margin-bottom:18px">
+        <div><span>Pareja</span><span>${esc(p.a)} &amp; ${esc(p.b)}</span></div>
+        <div><span>Juntos desde</span><span>${esc(fmtDate(p.date, "es"))}${p.time ? " · " + esc(p.time) : ""}</span></div>
+        <div><span>Fotos</span><span>${p.photos.length}</span></div>
+        <div><span>Canción</span><span>${esc(p.song.title || "—")}${p.song.artist ? " · " + esc(p.song.artist) : ""}</span></div>
+        <div><span>Carta</span><span>${p.letter ? p.letter.length + " caracteres" : "—"}</span></div>
+      </div>
+      <a class="btn ghost block" href="#/p/${p.id}" target="_blank" rel="noopener">👀 Ver vista previa</a>
+      <p class="note" style="margin-top:16px">Total: <b>${esc(CONFIG.price)}</b> · pago único. Tu página se activa al confirmar el pago.</p>`
+  ];
+
+  function paint(){
+    form.innerHTML = panels[step]();
+    $("#stLbl").textContent = `Paso ${step + 1} de ${STEPS.length} · ${STEPS[step]}`;
+    $$(".steps span").forEach((s, i) => s.classList.toggle("on", i <= step));
+    $("#prev").style.visibility = step ? "visible" : "hidden";
+    $("#next").textContent = step === STEPS.length - 1 ? (p.paid ? "Guardar cambios" : "Continuar al pago") : "Continuar";
+    if (step === 1) bindPhotos();
+    if (step === 3) bindLetter();
+    const first = form.querySelector("input,textarea,select"); first && first.id !== "fp" && innerWidth > 800 && first.focus();
+  }
+
+  function bindPhotos(){
+    const th = $("#th"), inp = $("#fp"), drop = $("#drop"), er = $("#er");
+    const draw = () => {
+      const n = p.photos.length, full = n >= CONFIG.maxPhotos;
+      th.innerHTML = p.photos.map((src, i) => `<figure><img src="${src}" alt="Foto ${i + 1}">${i === 0 ? '<span class="cover">Principal</span>' : ""}<button type="button" data-rm="${i}" aria-label="Quitar foto ${i + 1}">✕</button></figure>`).join("")
+        + (n && !full ? `<button type="button" class="add" id="addMore" aria-label="Agregar más fotos">+</button>` : "");
+      $("#pc").textContent = `${n} de ${CONFIG.maxPhotos} fotos`;
+      $("#pcHint").textContent = full ? "Llegaste al máximo" : "";
+      drop.classList.toggle("full", full);
+      $("#dropCta").textContent = n ? "Agregar más fotos" : "Elegir fotos";
+      const am = $("#addMore"); if (am) am.onclick = () => inp.click();
+    };
+    const add = async files => {
+      const list = [...files].filter(f => f.type.startsWith("image/") || /\.(heic|heif|jpe?g|png|webp)$/i.test(f.name));
+      const room = CONFIG.maxPhotos - p.photos.length;
+      if (room <= 0) return er.textContent = `Máximo ${CONFIG.maxPhotos} fotos.`;
+      drop.classList.add("busy"); $("#dropCta").textContent = "Cargando fotos…"; er.textContent = "";
+      let failed = 0;
+      for (const f of list.slice(0, room)){ try{ p.photos.push(await shrink(f)); draw(); }catch(e){ failed++; } }
+      drop.classList.remove("busy"); draw(); inp.value = "";
+      if (failed) er.textContent = `${failed} foto(s) no se pudieron leer. Prueba con JPG o PNG.`;
+      else if (list.length > room) er.textContent = `Solo se agregaron ${room}. Máximo ${CONFIG.maxPhotos} fotos.`;
+      saveDraft().catch(() => {});
+    };
+    inp.onchange = () => add(inp.files);
+    ["dragover","dragenter"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("over"); }));
+    ["dragleave","drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("over"); }));
+    drop.addEventListener("drop", e => add(e.dataTransfer.files));
+    th.onclick = e => { const b = e.target.closest("[data-rm]"); if (b){ p.photos.splice(+b.dataset.rm, 1); draw(); saveDraft().catch(() => {}); } };
+    draw();
+  }
+  function bindLetter(){
+    const ta = $("#fx"), cnt = $("#cnt"); const upd = () => cnt.textContent = ta.value.length; ta.oninput = upd; upd();
+    $$("[data-l]").forEach(b => b.onclick = () => {
+      if (ta.value.trim() && !confirmReplace()) return;
+      ta.value = LETTERS[b.dataset.l](p.a, p.b, fmtDate(p.date, "es")); upd(); $$("[data-l]").forEach(x => x.classList.toggle("on", x === b));
+    });
+  }
+  // Reemplazo directo sin diálogos del navegador: segundo toque confirma
+  let armed = 0;
+  function confirmReplace(){ if (Date.now() - armed < 3000) return true; armed = Date.now(); toast("Toca de nuevo para reemplazar tu carta"); return false; }
+
+  function collect(){
+    const er = $("#er"); const v = id => ($("#" + id)?.value || "").trim();
+    if (step === 0){
+      p.a = v("fa"); p.b = v("fb"); p.date = v("fd"); p.time = v("ft"); p.lang = v("fl") || "es";
+      if (!p.a || !p.b) return er.textContent = "Escribe los dos nombres.", false;
+      if (!p.date) return er.textContent = "Elige la fecha en que empezó su historia.", false;
+      if (new Date(p.date) > new Date()) return er.textContent = "La fecha no puede ser futura.", false;
+      if (!p.sign) p.sign = p.a;
+    }
+    if (step === 2){
+      p.song = { title: v("sn"), artist: v("sa"), url: v("su") };
+      if (p.song.url && !mediaEmbed(p.song.url)) return er.textContent = "Ese enlace no es de YouTube ni de Spotify. Revísalo o déjalo vacío.", false;
+    }
+    if (step === 3){
+      p.letter = $("#fx").value.trim(); p.sign = v("fs") || p.a;
+      if (!p.letter) return er.textContent = "Escribe tu carta o elige una sugerencia.", false;
+    }
+    return true;
+  }
+
+  $("#next").onclick = async () => {
+    if (!collect()) return;
+    await saveDraft();
+    if (step < STEPS.length - 1){ step++; paint(); window.scrollTo(0, 0); return; }
+    localStorage.removeItem("li_draft");
+    track("editor_completo", {});
+    location.hash = p.paid ? "#/listo/" + p.id : "#/pagar/" + p.id;
+  };
+  $("#prev").onclick = () => { collect(); saveDraft(); if (step){ step--; paint(); } };
+  paint();
+}
+
+/* Reduce fotos a máx 1280px (más rápido con datos móviles) */
+async function shrink(file, max = 1280, q = .8){
+  const toCanvas = (src, w, h) => { const k = Math.min(1, max / Math.max(w, h)); const c = document.createElement("canvas"); c.width = Math.round(w * k); c.height = Math.round(h * k); c.getContext("2d").drawImage(src, 0, 0, c.width, c.height); return c.toDataURL("image/jpeg", q); };
+  // 1) Método rápido (respeta la orientación de la foto)
+  if (window.createImageBitmap){
+    try{ const bmp = await createImageBitmap(file, { imageOrientation: "from-image" }); const out = toCanvas(bmp, bmp.width, bmp.height); bmp.close && bmp.close(); return out; }catch(e){}
+  }
+  // 2) Respaldo: leer como dataURL (funciona en visores de iPhone y navegadores antiguos)
+  const dataUrl = await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
+  return new Promise((res, rej) => {
+    const img = new Image(); const t = setTimeout(() => rej(new Error("timeout")), 15000);
+    img.onload = () => { clearTimeout(t); try{ res(toCanvas(img, img.naturalWidth, img.naturalHeight)); }catch(e){ rej(e); } };
+    img.onerror = () => { clearTimeout(t); rej(new Error("formato")); };
+    img.src = dataUrl;
+  });
+}
+
+/* YouTube / Spotify → URL embebible */
+function mediaEmbed(u){
+  if (!u) return null;
+  try{
+    const url = new URL(u), host = url.hostname.replace(/^www\.|^m\./, "");
+    if (host === "youtu.be") return { type: "yt", src: `https://www.youtube.com/embed/${url.pathname.slice(1)}?autoplay=1` };
+    if (host.endsWith("youtube.com")){
+      const id = url.searchParams.get("v") || (url.pathname.match(/\/(shorts|embed|live)\/([\w-]+)/) || [])[2];
+      if (id) return { type: "yt", src: `https://www.youtube.com/embed/${id}?autoplay=1` };
+    }
+    if (host === "open.spotify.com"){
+      const m = url.pathname.match(/(track|album|playlist|episode)\/([\w]+)/);
+      if (m) return { type: "sp", src: `https://open.spotify.com/embed/${m[1]}/${m[2]}?autoplay=1` };
+    }
+  }catch(e){}
+  return null;
+}
+
+/* ===================================================================
+   VISTA: PAGO (Yape / Plin / tarjeta)
+   =================================================================== */
+async function viewPay(id){
+  const p = await Store.get(id); if (!p) return viewMissing();
+  if (p.paid) return (location.hash = "#/listo/" + id);
+  let method = "yape";
+  setView(`${topBar("#/crear/" + id)}<main class="editor"><div class="wrap">
+    <h1 style="font-size:1.9rem">Último paso: activa tu página</h1>
+    <div class="card summary"><div><span>Página</span><span>${esc(p.a)} &amp; ${esc(p.b)}</span></div><div><span>Código</span><span>${esc(p.id)}</span></div><div><span>Total</span><span><b>${esc(CONFIG.price)}</b></span></div></div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" role="tab" data-m="yape" aria-selected="true">Yape</button>
+      <button class="tab" role="tab" data-m="plin" aria-selected="false">Plin</button>
+    </div>
+    <div id="pm"></div>
+    ${CONFIG.cardPaymentUrl ? `<p class="center muted" style="margin:18px 0 8px">o</p><a class="btn ghost block" href="${esc(CONFIG.cardPaymentUrl)}" target="_blank" rel="noopener">💳 Pagar con tarjeta</a>` : ""}
+    ${CONFIG.testMode ? `<div class="test-box"><b>Modo prueba</b><p class="muted" style="margin:.3em 0 .8em;font-size:.9rem">Este botón solo existe para probar el flujo. Desactívalo con <code>testMode: false</code> antes de publicar.</p><button class="btn sm block" id="sim">Simular pago aprobado</button></div>` : ""}
+  </div></main>`);
+  const paint = () => {
+    const m = CONFIG[method];
+    $("#pm").innerHTML = `
+      ${m.qrImage ? `<img src="${esc(m.qrImage)}" alt="QR de ${method}" style="width:220px;margin:12px auto;border-radius:14px">` : `<div class="qr-ph">[Aquí va la imagen de tu QR de ${method === "yape" ? "Yape" : "Plin"}]</div>`}
+      <ol style="padding-left:1.2em;margin:0 0 16px">
+        <li>Yapea o plinea <b>${esc(CONFIG.price)}</b> al <b>${esc(m.number)}</b> (${esc(m.holder)}).</li>
+        <li>En el mensaje del pago escribe tu código: <b>${esc(p.id)}</b>.</li>
+        <li>Envíanos la captura por WhatsApp y activamos tu página.</li>
+      </ol>
+      <a class="btn block" id="sendWa" target="_blank" rel="noopener" href="${waLink(`Hola ${CONFIG.brand} 👋 Ya pagué ${CONFIG.price} por ${method === "yape" ? "Yape" : "Plin"}.\nCódigo de mi página: ${p.id}\nPareja: ${p.a} & ${p.b}\nAdjunto mi comprobante.`)}">📲 Enviar comprobante por WhatsApp</a>
+      <p class="note" style="margin-top:14px">Guarda esta página: puedes volver desde “Mis páginas” cuando se active.</p>`;
+    $("#sendWa").onclick = () => track("comprobante_whatsapp", { method, value: CONFIG.priceNumber, currency: "PEN" });
+  };
+  $$(".tab").forEach(t => t.onclick = () => { method = t.dataset.m; $$(".tab").forEach(x => { x.classList.toggle("on", x === t); x.setAttribute("aria-selected", x === t); }); paint(); });
+  paint();
+  const sim = $("#sim"); if (sim) sim.onclick = async () => { p.paid = true; p.paidAt = Date.now(); await Store.save(p); track("Purchase", { value: CONFIG.priceNumber, currency: "PEN" }); location.hash = "#/listo/" + p.id; };
+}
+
+/* ===================================================================
+   VISTA: LISTO (QR + tarjeta + compartir)
+   =================================================================== */
+async function viewDone(id){
+  const p = await Store.get(id); if (!p) return viewMissing();
+  if (!p.paid) return (location.hash = "#/pagar/" + id);
+  const url = await shareUrl(p);
+  setView(`${topBar()}<main class="editor"><div class="wrap center">
+    <span class="pill"><span class="dot"></span> Página activa</span>
+    <h1 style="font-size:2rem;margin-top:.5em">¡Tu regalo está listo! 🎉</h1>
+    <p class="muted">Imprime la tarjeta o envía el QR. Cuando lo escanee, verá su historia.</p>
+    <div class="qr-box" id="qrb"></div>
+    <div class="grid g2" style="max-width:520px;margin:0 auto 14px">
+      <button class="btn" id="dlCard">🖨️ Descargar tarjeta</button>
+      <button class="btn ghost" id="dlQr">🔳 Descargar QR</button>
+    </div>
+    <div class="share" style="margin:18px 0">${shareButtons(url, p, I18N.es)}</div>
+    <p><a class="btn sm ghost" href="#/p/${p.id}">Abrir mi página</a> <a class="btn sm ghost" href="#/crear/${p.id}">Editar</a></p>
+    <p class="note" style="text-align:left;margin-top:20px"><b>Prototipo:</b> las fotos se guardan solo en este dispositivo. El QR lleva los textos, la canción y el contador. Con el servidor de producción, el QR abrirá la página completa con fotos.</p>
+  </div></main>`);
+  $("#qrb").appendChild(qrCanvas(url, 600));
+  $("#dlQr").onclick = () => download(qrCanvas(url, 1000), `qr-${p.a}-${p.b}.png`);
+  $("#dlCard").onclick = async () => { try{ await document.fonts.ready; }catch(e){} download(cardCanvas(p, url), `tarjeta-${p.a}-${p.b}.png`); };
+  bindShare(url);
+}
+function shareButtons(url, p, t){
+  const msg = `${p.a} & ${p.b} 💕`;
+  return `<a class="btn sm ghost" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg + " " + url)}">WhatsApp</a>
+  <a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}">Facebook</a>
+  <a class="btn sm ghost" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(msg)}&url=${encodeURIComponent(url)}">X</a>
+  <button class="btn sm ghost" data-copy>${t.copy}</button>
+  ${navigator.share ? `<button class="btn sm ghost" data-nshare>Compartir…</button>` : ""}`;
+}
+function bindShare(url, t = I18N.es){
+  $$("[data-copy]").forEach(b => b.onclick = async () => { try{ await navigator.clipboard.writeText(url); }catch(e){ const i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); document.execCommand("copy"); i.remove(); } toast(t.copied); });
+  $$("[data-nshare]").forEach(b => b.onclick = () => navigator.share({ url }).catch(() => {}));
+}
+
+/* ===================================================================
+   VISTA: MIS PÁGINAS
+   =================================================================== */
+async function viewMine(){
+  const list = (await Store.all()).sort((x, y) => (y.updated || 0) - (x.updated || 0));
+  setView(`${topBar()}<main class="editor"><div class="wrap">
+    <h1 style="font-size:1.9rem">Mis páginas</h1>
+    <p class="muted">Guardadas en este dispositivo.</p>
+    <div class="my-list">${list.length ? list.map(p => `<div class="card my-item">
+      <div class="th" style="${p.photos?.[0] ? `background-image:url(${p.photos[0]})` : ""}"></div>
+      <div class="info"><b>${esc(p.a || "Sin nombre")} &amp; ${esc(p.b || "…")}</b><span class="tag ${p.paid ? "ok" : "pend"}">${p.paid ? "Activa" : "Pendiente de pago"}</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="btn sm ghost" href="#/crear/${p.id}" aria-label="Editar">✏️</a>
+        <a class="btn sm" href="${p.paid ? "#/listo/" : "#/pagar/"}${p.id}">${p.paid ? "QR" : "Pagar"}</a>
+        <button class="btn sm ghost" data-del="${p.id}" aria-label="Eliminar">🗑️</button>
+      </div></div>`).join("") : `<div class="card center"><p class="muted">Aún no creaste ninguna página.</p><a class="btn" href="#/crear">Crear mi regalo</a></div>`}</div>
+  </div></main>`);
+  let armed = {};
+  $$("[data-del]").forEach(b => b.onclick = async () => {
+    const id = b.dataset.del;
+    if (Date.now() - (armed[id] || 0) > 3000){ armed[id] = Date.now(); return toast("Toca de nuevo para eliminar"); }
+    await Store.del(id); const d = JSON.parse(localStorage.getItem("li_draft") || "null"); if (d && d.id === id) localStorage.removeItem("li_draft"); viewMine();
+  });
+}
+
+/* ===================================================================
+   VISTA: PÁGINA DE LA PAREJA
+   =================================================================== */
+async function viewLove(p){
+  let lang = p.lang && I18N[p.lang] ? p.lang : "es";
+  const url = p.demo ? baseUrl() + "#/demo" : p.portable ? location.href : await shareUrl(p);
+  const draw = () => {
+    const t = I18N[lang], emb = mediaEmbed(p.song?.url), hasSong = p.song && (p.song.title || p.song.url);
+    const photos = p.demo ? ["#ff8a7a,#c74b7a", "#ffb36b,#ff6f7d", "#8a4fa0,#3b1d48"].map(g => `<button type="button" tabindex="-1" aria-hidden="true"><div class="demo-photo" style="background:linear-gradient(135deg,${g})">♥</div></button>`).join("")
+      : (p.photos || []).map((src, i) => `<button type="button" data-ph="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("");
+    setView(`
+    ${p.demo ? `<div class="lp-banner">${t.demo} · <a href="#/crear" style="color:inherit">${t.create} →</a></div>` : !p.paid ? `<div class="lp-banner">${t.preview}</div>` : ""}
+    <div class="lp-bar">
+      <a href="${p.demo ? "#/" : "#"}" class="logo" style="font-size:1rem"><i>♥</i> <span class="sr">${esc(CONFIG.brand)}</span></a>
+      <div class="langs" role="group" aria-label="Idioma">${["es","en","pt","it"].map(l => `<button data-lang="${l}" class="${l === lang ? "on" : ""}" aria-pressed="${l === lang}">${l.toUpperCase()}</button>`).join("")}</div>
+      ${p.demo ? `<a class="btn sm" href="#/crear">${t.create}</a>` : "<span></span>"}
+    </div>
+    <div class="hearts" aria-hidden="true">${Array.from({ length: 12 }, (_, i) => `<span style="left:${(i * 37) % 100}%;font-size:${10 + (i * 7) % 18}px;animation-duration:${9 + (i * 3) % 9}s;animation-delay:${(i * 1.7) % 10}s">♥</span>`).join("")}</div>
+    <main class="lp-main">
+      ${hasSong ? `<div class="music" id="mus"><div class="disc"></div><div class="t"><b>${esc(p.song.title || t.nolink)}</b><small>${esc(p.song.artist || "")}</small></div>${emb ? `<button class="play" id="play" aria-label="${t.play}">▶</button>` : ""}</div>
+        <div class="player-slot" id="slot"></div>${emb ? `<p class="music-hint" id="mh">${t.hint}</p>` : ""}` : ""}
+      <div class="names"><h1>${esc(p.a)}<span class="amp">&amp;</span>${esc(p.b)}</h1></div>
+      <p class="since">${t.together}<b>${esc(fmtDate(p.date, lang))}</b></p>
+      ${photos ? `<h2 class="sr">${t.photos}</h2><div class="gallery">${photos}</div>` : ""}
+      <div class="counter-box">
+        <h2>${t.time}</h2><p class="muted" style="margin:0">${t.sub}</p>
+        <div class="counter" id="ctr">${["y","mo","d","h","mi","s"].map(k => `<div><b data-k="${k}">00</b><span>${t[k]}</span></div>`).join("")}</div>
+      </div>
+      ${p.letter ? `<article class="letter"><p>${esc(p.letter)}</p><p class="sign">${t.love}<br><b>${esc(p.sign || p.a)}</b></p></article>` : ""}
+      <div class="lp-share">
+        <h2 style="font-size:1.4rem">${t.share}</h2>
+        <button class="btn sm" id="lpQr">${t.qr}</button>
+        <div class="share">${shareButtons(url, p, t)}</div>
+      </div>
+      <div class="card center"><p style="margin-bottom:.8em"><b>${t.liked}</b></p><a class="btn" href="${baseUrl()}#/crear">${t.create} · ${esc(CONFIG.price)}</a></div>
+      <p class="lp-foot">${t.made} ♥ ${esc(CONFIG.brand)}</p>
+    </main>
+    <dialog class="lightbox" id="lb"><img id="lbImg" alt=""><button class="btn sm ghost" id="lbClose">${t.close}</button></dialog>`, "lp");
+
+    // Contador en vivo
+    const from = startDate(p), cells = Object.fromEntries($$("#ctr [data-k]").map(b => [b.dataset.k, b]));
+    const tick = () => { const d = diff(from); for (const k in cells) cells[k].textContent = pad(d[k]); };
+    tick(); const iv = setInterval(tick, 1000); cleanup.push(() => clearInterval(iv));
+    // Idioma
+    $$("[data-lang]").forEach(b => b.onclick = () => { lang = b.dataset.lang; draw(); });
+    // Música (se carga solo al tocar: no gasta datos)
+    const play = $("#play");
+    if (play) play.onclick = () => {
+      $("#slot").innerHTML = `<iframe src="${emb.src}" height="${emb.type === "sp" ? 152 : 200}" allow="autoplay; encrypted-media" title="${esc(p.song.title)}" loading="lazy"></iframe>`;
+      $("#mus").classList.add("playing"); play.remove(); $("#mh")?.remove();
+    };
+    // Galería
+    const lb = $("#lb");
+    $$("[data-ph]").forEach(b => b.onclick = () => { $("#lbImg").src = p.photos[+b.dataset.ph]; lb.showModal(); });
+    $("#lbClose").onclick = () => lb.close(); lb.onclick = e => e.target === lb && lb.close();
+    // QR y compartir
+    $("#lpQr").onclick = () => download(qrCanvas(url, 1000), `qr-${p.a}-${p.b}.png`);
+    bindShare(url, t);
+    document.title = `${p.a} & ${p.b} 💕`;
+  };
+  draw();
+  if (!p.demo) { let m = document.querySelector('meta[name=robots]'); if (!m){ m = document.createElement("meta"); m.name = "robots"; document.head.appendChild(m); } m.content = "noindex"; }
+}
+
+route();
+</script>
+
+<!-- ===================================================================
+     Librería QR: qrcode-generator 1.4.4 · (c) Kazuhiko Arase · MIT
+     =================================================================== -->
+<script>
+//---------------------------------------------------------------------
+//
+// QR Code Generator for JavaScript
+//
+// Copyright (c) 2009 Kazuhiko Arase
+//
+// URL: http://www.d-project.com/
+//
+// Licensed under the MIT license:
+//  http://www.opensource.org/licenses/mit-license.php
+//
+// The word 'QR Code' is registered trademark of
+// DENSO WAVE INCORPORATED
+//  http://www.denso-wave.com/qrcode/faqpatent-e.html
+//
+//---------------------------------------------------------------------
+
+var qrcode = function() {
+
+  //---------------------------------------------------------------------
+  // qrcode
+  //---------------------------------------------------------------------
+
+  /**
+   * qrcode
+   * @param typeNumber 1 to 40
+   * @param errorCorrectionLevel 'L','M','Q','H'
+   */
+  var qrcode = function(typeNumber, errorCorrectionLevel) {
+
+    var PAD0 = 0xEC;
+    var PAD1 = 0x11;
+
+    var _typeNumber = typeNumber;
+    var _errorCorrectionLevel = QRErrorCorrectionLevel[errorCorrectionLevel];
+    var _modules = null;
+    var _moduleCount = 0;
+    var _dataCache = null;
+    var _dataList = [];
+
+    var _this = {};
+
+    var makeImpl = function(test, maskPattern) {
+
+      _moduleCount = _typeNumber * 4 + 17;
+      _modules = function(moduleCount) {
+        var modules = new Array(moduleCount);
+        for (var row = 0; row < moduleCount; row += 1) {
+          modules[row] = new Array(moduleCount);
+          for (var col = 0; col < moduleCount; col += 1) {
+            modules[row][col] = null;
+          }
+        }
+        return modules;
+      }(_moduleCount);
+
+      setupPositionProbePattern(0, 0);
+      setupPositionProbePattern(_moduleCount - 7, 0);
+      setupPositionProbePattern(0, _moduleCount - 7);
+      setupPositionAdjustPattern();
+      setupTimingPattern();
+      setupTypeInfo(test, maskPattern);
+
+      if (_typeNumber >= 7) {
+        setupTypeNumber(test);
+      }
+
+      if (_dataCache == null) {
+        _dataCache = createData(_typeNumber, _errorCorrectionLevel, _dataList);
+      }
+
+      mapData(_dataCache, maskPattern);
+    };
+
+    var setupPositionProbePattern = function(row, col) {
+
+      for (var r = -1; r <= 7; r += 1) {
+
+        if (row + r <= -1 || _moduleCount <= row + r) continue;
+
+        for (var c = -1; c <= 7; c += 1) {
+
+          if (col + c <= -1 || _moduleCount <= col + c) continue;
+
+          if ( (0 <= r && r <= 6 && (c == 0 || c == 6) )
+              || (0 <= c && c <= 6 && (r == 0 || r == 6) )
+              || (2 <= r && r <= 4 && 2 <= c && c <= 4) ) {
+            _modules[row + r][col + c] = true;
+          } else {
+            _modules[row + r][col + c] = false;
+          }
+        }
+      }
+    };
+
+    var getBestMaskPattern = function() {
+
+      var minLostPoint = 0;
+      var pattern = 0;
+
+      for (var i = 0; i < 8; i += 1) {
+
+        makeImpl(true, i);
+
+        var lostPoint = QRUtil.getLostPoint(_this);
+
+        if (i == 0 || minLostPoint > lostPoint) {
+          minLostPoint = lostPoint;
+          pattern = i;
+        }
+      }
+
+      return pattern;
+    };
+
+    var setupTimingPattern = function() {
+
+      for (var r = 8; r < _moduleCount - 8; r += 1) {
+        if (_modules[r][6] != null) {
+          continue;
+        }
+        _modules[r][6] = (r % 2 == 0);
+      }
+
+      for (var c = 8; c < _moduleCount - 8; c += 1) {
+        if (_modules[6][c] != null) {
+          continue;
+        }
+        _modules[6][c] = (c % 2 == 0);
+      }
+    };
+
+    var setupPositionAdjustPattern = function() {
+
+      var pos = QRUtil.getPatternPosition(_typeNumber);
+
+      for (var i = 0; i < pos.length; i += 1) {
+
+        for (var j = 0; j < pos.length; j += 1) {
+
+          var row = pos[i];
+          var col = pos[j];
+
+          if (_modules[row][col] != null) {
+            continue;
+          }
+
+          for (var r = -2; r <= 2; r += 1) {
+
+            for (var c = -2; c <= 2; c += 1) {
+
+              if (r == -2 || r == 2 || c == -2 || c == 2
+                  || (r == 0 && c == 0) ) {
+                _modules[row + r][col + c] = true;
+              } else {
+                _modules[row + r][col + c] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+
+    var setupTypeNumber = function(test) {
+
+      var bits = QRUtil.getBCHTypeNumber(_typeNumber);
+
+      for (var i = 0; i < 18; i += 1) {
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+        _modules[Math.floor(i / 3)][i % 3 + _moduleCount - 8 - 3] = mod;
+      }
+
+      for (var i = 0; i < 18; i += 1) {
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+        _modules[i % 3 + _moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
+      }
+    };
+
+    var setupTypeInfo = function(test, maskPattern) {
+
+      var data = (_errorCorrectionLevel << 3) | maskPattern;
+      var bits = QRUtil.getBCHTypeInfo(data);
+
+      // vertical
+      for (var i = 0; i < 15; i += 1) {
+
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+
+        if (i < 6) {
+          _modules[i][8] = mod;
+        } else if (i < 8) {
+          _modules[i + 1][8] = mod;
+        } else {
+          _modules[_moduleCount - 15 + i][8] = mod;
+        }
+      }
+
+      // horizontal
+      for (var i = 0; i < 15; i += 1) {
+
+        var mod = (!test && ( (bits >> i) & 1) == 1);
+
+        if (i < 8) {
+          _modules[8][_moduleCount - i - 1] = mod;
+        } else if (i < 9) {
+          _modules[8][15 - i - 1 + 1] = mod;
+        } else {
+          _modules[8][15 - i - 1] = mod;
+        }
+      }
+
+      // fixed module
+      _modules[_moduleCount - 8][8] = (!test);
+    };
+
+    var mapData = function(data, maskPattern) {
+
+      var inc = -1;
+      var row = _moduleCount - 1;
+      var bitIndex = 7;
+      var byteIndex = 0;
+      var maskFunc = QRUtil.getMaskFunction(maskPattern);
+
+      for (var col = _moduleCount - 1; col > 0; col -= 2) {
+
+        if (col == 6) col -= 1;
+
+        while (true) {
+
+          for (var c = 0; c < 2; c += 1) {
+
+            if (_modules[row][col - c] == null) {
+
+              var dark = false;
+
+              if (byteIndex < data.length) {
+                dark = ( ( (data[byteIndex] >>> bitIndex) & 1) == 1);
+              }
+
+              var mask = maskFunc(row, col - c);
+
+              if (mask) {
+                dark = !dark;
+              }
+
+              _modules[row][col - c] = dark;
+              bitIndex -= 1;
+
+              if (bitIndex == -1) {
+                byteIndex += 1;
+                bitIndex = 7;
+              }
+            }
+          }
+
+          row += inc;
+
+          if (row < 0 || _moduleCount <= row) {
+            row -= inc;
+            inc = -inc;
+            break;
+          }
+        }
+      }
+    };
+
+    var createBytes = function(buffer, rsBlocks) {
+
+      var offset = 0;
+
+      var maxDcCount = 0;
+      var maxEcCount = 0;
+
+      var dcdata = new Array(rsBlocks.length);
+      var ecdata = new Array(rsBlocks.length);
+
+      for (var r = 0; r < rsBlocks.length; r += 1) {
+
+        var dcCount = rsBlocks[r].dataCount;
+        var ecCount = rsBlocks[r].totalCount - dcCount;
+
+        maxDcCount = Math.max(maxDcCount, dcCount);
+        maxEcCount = Math.max(maxEcCount, ecCount);
+
+        dcdata[r] = new Array(dcCount);
+
+        for (var i = 0; i < dcdata[r].length; i += 1) {
+          dcdata[r][i] = 0xff & buffer.getBuffer()[i + offset];
+        }
+        offset += dcCount;
+
+        var rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+        var rawPoly = qrPolynomial(dcdata[r], rsPoly.getLength() - 1);
+
+        var modPoly = rawPoly.mod(rsPoly);
+        ecdata[r] = new Array(rsPoly.getLength() - 1);
+        for (var i = 0; i < ecdata[r].length; i += 1) {
+          var modIndex = i + modPoly.getLength() - ecdata[r].length;
+          ecdata[r][i] = (modIndex >= 0)? modPoly.getAt(modIndex) : 0;
+        }
+      }
+
+      var totalCodeCount = 0;
+      for (var i = 0; i < rsBlocks.length; i += 1) {
+        totalCodeCount += rsBlocks[i].totalCount;
+      }
+
+      var data = new Array(totalCodeCount);
+      var index = 0;
+
+      for (var i = 0; i < maxDcCount; i += 1) {
+        for (var r = 0; r < rsBlocks.length; r += 1) {
+          if (i < dcdata[r].length) {
+            data[index] = dcdata[r][i];
+            index += 1;
+          }
+        }
+      }
+
+      for (var i = 0; i < maxEcCount; i += 1) {
+        for (var r = 0; r < rsBlocks.length; r += 1) {
+          if (i < ecdata[r].length) {
+            data[index] = ecdata[r][i];
+            index += 1;
+          }
+        }
+      }
+
+      return data;
+    };
+
+    var createData = function(typeNumber, errorCorrectionLevel, dataList) {
+
+      var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectionLevel);
+
+      var buffer = qrBitBuffer();
+
+      for (var i = 0; i < dataList.length; i += 1) {
+        var data = dataList[i];
+        buffer.put(data.getMode(), 4);
+        buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
+        data.write(buffer);
+      }
+
+      // calc num max data.
+      var totalDataCount = 0;
+      for (var i = 0; i < rsBlocks.length; i += 1) {
+        totalDataCount += rsBlocks[i].dataCount;
+      }
+
+      if (buffer.getLengthInBits() > totalDataCount * 8) {
+        throw 'code length overflow. ('
+          + buffer.getLengthInBits()
+          + '>'
+          + totalDataCount * 8
+          + ')';
+      }
+
+      // end code
+      if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) {
+        buffer.put(0, 4);
+      }
+
+      // padding
+      while (buffer.getLengthInBits() % 8 != 0) {
+        buffer.putBit(false);
+      }
+
+      // padding
+      while (true) {
+
+        if (buffer.getLengthInBits() >= totalDataCount * 8) {
+          break;
+        }
+        buffer.put(PAD0, 8);
+
+        if (buffer.getLengthInBits() >= totalDataCount * 8) {
+          break;
+        }
+        buffer.put(PAD1, 8);
+      }
+
+      return createBytes(buffer, rsBlocks);
+    };
+
+    _this.addData = function(data, mode) {
+
+      mode = mode || 'Byte';
+
+      var newData = null;
+
+      switch(mode) {
+      case 'Numeric' :
+        newData = qrNumber(data);
+        break;
+      case 'Alphanumeric' :
+        newData = qrAlphaNum(data);
+        break;
+      case 'Byte' :
+        newData = qr8BitByte(data);
+        break;
+      case 'Kanji' :
+        newData = qrKanji(data);
+        break;
+      default :
+        throw 'mode:' + mode;
+      }
+
+      _dataList.push(newData);
+      _dataCache = null;
+    };
+
+    _this.isDark = function(row, col) {
+      if (row < 0 || _moduleCount <= row || col < 0 || _moduleCount <= col) {
+        throw row + ',' + col;
+      }
+      return _modules[row][col];
+    };
+
+    _this.getModuleCount = function() {
+      return _moduleCount;
+    };
+
+    _this.make = function() {
+      if (_typeNumber < 1) {
+        var typeNumber = 1;
+
+        for (; typeNumber < 40; typeNumber++) {
+          var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, _errorCorrectionLevel);
+          var buffer = qrBitBuffer();
+
+          for (var i = 0; i < _dataList.length; i++) {
+            var data = _dataList[i];
+            buffer.put(data.getMode(), 4);
+            buffer.put(data.getLength(), QRUtil.getLengthInBits(data.getMode(), typeNumber) );
+            data.write(buffer);
+          }
+
+          var totalDataCount = 0;
+          for (var i = 0; i < rsBlocks.length; i++) {
+            totalDataCount += rsBlocks[i].dataCount;
+          }
+
+          if (buffer.getLengthInBits() <= totalDataCount * 8) {
+            break;
+          }
+        }
+
+        _typeNumber = typeNumber;
+      }
+
+      makeImpl(false, getBestMaskPattern() );
+    };
+
+    _this.createTableTag = function(cellSize, margin) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var qrHtml = '';
+
+      qrHtml += '<table style="';
+      qrHtml += ' border-width: 0px; border-style: none;';
+      qrHtml += ' border-collapse: collapse;';
+      qrHtml += ' padding: 0px; margin: ' + margin + 'px;';
+      qrHtml += '">';
+      qrHtml += '<tbody>';
+
+      for (var r = 0; r < _this.getModuleCount(); r += 1) {
+
+        qrHtml += '<tr>';
+
+        for (var c = 0; c < _this.getModuleCount(); c += 1) {
+          qrHtml += '<td style="';
+          qrHtml += ' border-width: 0px; border-style: none;';
+          qrHtml += ' border-collapse: collapse;';
+          qrHtml += ' padding: 0px; margin: 0px;';
+          qrHtml += ' width: ' + cellSize + 'px;';
+          qrHtml += ' height: ' + cellSize + 'px;';
+          qrHtml += ' background-color: ';
+          qrHtml += _this.isDark(r, c)? '#000000' : '#ffffff';
+          qrHtml += ';';
+          qrHtml += '"/>';
+        }
+
+        qrHtml += '</tr>';
+      }
+
+      qrHtml += '</tbody>';
+      qrHtml += '</table>';
+
+      return qrHtml;
+    };
+
+    _this.createSvgTag = function(cellSize, margin, alt, title) {
+
+      var opts = {};
+      if (typeof arguments[0] == 'object') {
+        // Called by options.
+        opts = arguments[0];
+        // overwrite cellSize and margin.
+        cellSize = opts.cellSize;
+        margin = opts.margin;
+        alt = opts.alt;
+        title = opts.title;
+      }
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      // Compose alt property surrogate
+      alt = (typeof alt === 'string') ? {text: alt} : alt || {};
+      alt.text = alt.text || null;
+      alt.id = (alt.text) ? alt.id || 'qrcode-description' : null;
+
+      // Compose title property surrogate
+      title = (typeof title === 'string') ? {text: title} : title || {};
+      title.text = title.text || null;
+      title.id = (title.text) ? title.id || 'qrcode-title' : null;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var c, mc, r, mr, qrSvg='', rect;
+
+      rect = 'l' + cellSize + ',0 0,' + cellSize +
+        ' -' + cellSize + ',0 0,-' + cellSize + 'z ';
+
+      qrSvg += '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"';
+      qrSvg += !opts.scalable ? ' width="' + size + 'px" height="' + size + 'px"' : '';
+      qrSvg += ' viewBox="0 0 ' + size + ' ' + size + '" ';
+      qrSvg += ' preserveAspectRatio="xMinYMin meet"';
+      qrSvg += (title.text || alt.text) ? ' role="img" aria-labelledby="' +
+          escapeXml([title.id, alt.id].join(' ').trim() ) + '"' : '';
+      qrSvg += '>';
+      qrSvg += (title.text) ? '<title id="' + escapeXml(title.id) + '">' +
+          escapeXml(title.text) + '</title>' : '';
+      qrSvg += (alt.text) ? '<description id="' + escapeXml(alt.id) + '">' +
+          escapeXml(alt.text) + '</description>' : '';
+      qrSvg += '<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>';
+      qrSvg += '<path d="';
+
+      for (r = 0; r < _this.getModuleCount(); r += 1) {
+        mr = r * cellSize + margin;
+        for (c = 0; c < _this.getModuleCount(); c += 1) {
+          if (_this.isDark(r, c) ) {
+            mc = c*cellSize+margin;
+            qrSvg += 'M' + mc + ',' + mr + rect;
+          }
+        }
+      }
+
+      qrSvg += '" stroke="transparent" fill="black"/>';
+      qrSvg += '</svg>';
+
+      return qrSvg;
+    };
+
+    _this.createDataURL = function(cellSize, margin) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      return createDataURL(size, size, function(x, y) {
+        if (min <= x && x < max && min <= y && y < max) {
+          var c = Math.floor( (x - min) / cellSize);
+          var r = Math.floor( (y - min) / cellSize);
+          return _this.isDark(r, c)? 0 : 1;
+        } else {
+          return 1;
+        }
+      } );
+    };
+
+    _this.createImgTag = function(cellSize, margin, alt) {
+
+      cellSize = cellSize || 2;
+      margin = (typeof margin == 'undefined')? cellSize * 4 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+
+      var img = '';
+      img += '<img';
+      img += '\u0020src="';
+      img += _this.createDataURL(cellSize, margin);
+      img += '"';
+      img += '\u0020width="';
+      img += size;
+      img += '"';
+      img += '\u0020height="';
+      img += size;
+      img += '"';
+      if (alt) {
+        img += '\u0020alt="';
+        img += escapeXml(alt);
+        img += '"';
+      }
+      img += '/>';
+
+      return img;
+    };
+
+    var escapeXml = function(s) {
+      var escaped = '';
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charAt(i);
+        switch(c) {
+        case '<': escaped += '&lt;'; break;
+        case '>': escaped += '&gt;'; break;
+        case '&': escaped += '&amp;'; break;
+        case '"': escaped += '&quot;'; break;
+        default : escaped += c; break;
+        }
+      }
+      return escaped;
+    };
+
+    var _createHalfASCII = function(margin) {
+      var cellSize = 1;
+      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      var y, x, r1, r2, p;
+
+      var blocks = {
+        '██': '█',
+        '█ ': '▀',
+        ' █': '▄',
+        '  ': ' '
+      };
+
+      var blocksLastLineNoMargin = {
+        '██': '▀',
+        '█ ': '▀',
+        ' █': ' ',
+        '  ': ' '
+      };
+
+      var ascii = '';
+      for (y = 0; y < size; y += 2) {
+        r1 = Math.floor((y - min) / cellSize);
+        r2 = Math.floor((y + 1 - min) / cellSize);
+        for (x = 0; x < size; x += 1) {
+          p = '█';
+
+          if (min <= x && x < max && min <= y && y < max && _this.isDark(r1, Math.floor((x - min) / cellSize))) {
+            p = ' ';
+          }
+
+          if (min <= x && x < max && min <= y+1 && y+1 < max && _this.isDark(r2, Math.floor((x - min) / cellSize))) {
+            p += ' ';
+          }
+          else {
+            p += '█';
+          }
+
+          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+          ascii += (margin < 1 && y+1 >= max) ? blocksLastLineNoMargin[p] : blocks[p];
+        }
+
+        ascii += '\n';
+      }
+
+      if (size % 2 && margin > 0) {
+        return ascii.substring(0, ascii.length - size - 1) + Array(size+1).join('▀');
+      }
+
+      return ascii.substring(0, ascii.length-1);
+    };
+
+    _this.createASCII = function(cellSize, margin) {
+      cellSize = cellSize || 1;
+
+      if (cellSize < 2) {
+        return _createHalfASCII(margin);
+      }
+
+      cellSize -= 1;
+      margin = (typeof margin == 'undefined')? cellSize * 2 : margin;
+
+      var size = _this.getModuleCount() * cellSize + margin * 2;
+      var min = margin;
+      var max = size - margin;
+
+      var y, x, r, p;
+
+      var white = Array(cellSize+1).join('██');
+      var black = Array(cellSize+1).join('  ');
+
+      var ascii = '';
+      var line = '';
+      for (y = 0; y < size; y += 1) {
+        r = Math.floor( (y - min) / cellSize);
+        line = '';
+        for (x = 0; x < size; x += 1) {
+          p = 1;
+
+          if (min <= x && x < max && min <= y && y < max && _this.isDark(r, Math.floor((x - min) / cellSize))) {
+            p = 0;
+          }
+
+          // Output 2 characters per pixel, to create full square. 1 character per pixels gives only half width of square.
+          line += p ? white : black;
+        }
+
+        for (r = 0; r < cellSize; r += 1) {
+          ascii += line + '\n';
+        }
+      }
+
+      return ascii.substring(0, ascii.length-1);
+    };
+
+    _this.renderTo2dContext = function(context, cellSize) {
+      cellSize = cellSize || 2;
+      var length = _this.getModuleCount();
+      for (var row = 0; row < length; row++) {
+        for (var col = 0; col < length; col++) {
+          context.fillStyle = _this.isDark(row, col) ? 'black' : 'white';
+          context.fillRect(row * cellSize, col * cellSize, cellSize, cellSize);
+        }
+      }
+    }
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrcode.stringToBytes
+  //---------------------------------------------------------------------
+
+  qrcode.stringToBytesFuncs = {
+    'default' : function(s) {
+      var bytes = [];
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charCodeAt(i);
+        bytes.push(c & 0xff);
+      }
+      return bytes;
+    }
+  };
+
+  qrcode.stringToBytes = qrcode.stringToBytesFuncs['default'];
+
+  //---------------------------------------------------------------------
+  // qrcode.createStringToBytes
+  //---------------------------------------------------------------------
+
+  /**
+   * @param unicodeData base64 string of byte array.
+   * [16bit Unicode],[16bit Bytes], ...
+   * @param numChars
+   */
+  qrcode.createStringToBytes = function(unicodeData, numChars) {
+
+    // create conversion map.
+
+    var unicodeMap = function() {
+
+      var bin = base64DecodeInputStream(unicodeData);
+      var read = function() {
+        var b = bin.read();
+        if (b == -1) throw 'eof';
+        return b;
+      };
+
+      var count = 0;
+      var unicodeMap = {};
+      while (true) {
+        var b0 = bin.read();
+        if (b0 == -1) break;
+        var b1 = read();
+        var b2 = read();
+        var b3 = read();
+        var k = String.fromCharCode( (b0 << 8) | b1);
+        var v = (b2 << 8) | b3;
+        unicodeMap[k] = v;
+        count += 1;
+      }
+      if (count != numChars) {
+        throw count + ' != ' + numChars;
+      }
+
+      return unicodeMap;
+    }();
+
+    var unknownChar = '?'.charCodeAt(0);
+
+    return function(s) {
+      var bytes = [];
+      for (var i = 0; i < s.length; i += 1) {
+        var c = s.charCodeAt(i);
+        if (c < 128) {
+          bytes.push(c);
+        } else {
+          var b = unicodeMap[s.charAt(i)];
+          if (typeof b == 'number') {
+            if ( (b & 0xff) == b) {
+              // 1byte
+              bytes.push(b);
+            } else {
+              // 2bytes
+              bytes.push(b >>> 8);
+              bytes.push(b & 0xff);
+            }
+          } else {
+            bytes.push(unknownChar);
+          }
+        }
+      }
+      return bytes;
+    };
+  };
+
+  //---------------------------------------------------------------------
+  // QRMode
+  //---------------------------------------------------------------------
+
+  var QRMode = {
+    MODE_NUMBER :    1 << 0,
+    MODE_ALPHA_NUM : 1 << 1,
+    MODE_8BIT_BYTE : 1 << 2,
+    MODE_KANJI :     1 << 3
+  };
+
+  //---------------------------------------------------------------------
+  // QRErrorCorrectionLevel
+  //---------------------------------------------------------------------
+
+  var QRErrorCorrectionLevel = {
+    L : 1,
+    M : 0,
+    Q : 3,
+    H : 2
+  };
+
+  //---------------------------------------------------------------------
+  // QRMaskPattern
+  //---------------------------------------------------------------------
+
+  var QRMaskPattern = {
+    PATTERN000 : 0,
+    PATTERN001 : 1,
+    PATTERN010 : 2,
+    PATTERN011 : 3,
+    PATTERN100 : 4,
+    PATTERN101 : 5,
+    PATTERN110 : 6,
+    PATTERN111 : 7
+  };
+
+  //---------------------------------------------------------------------
+  // QRUtil
+  //---------------------------------------------------------------------
+
+  var QRUtil = function() {
+
+    var PATTERN_POSITION_TABLE = [
+      [],
+      [6, 18],
+      [6, 22],
+      [6, 26],
+      [6, 30],
+      [6, 34],
+      [6, 22, 38],
+      [6, 24, 42],
+      [6, 26, 46],
+      [6, 28, 50],
+      [6, 30, 54],
+      [6, 32, 58],
+      [6, 34, 62],
+      [6, 26, 46, 66],
+      [6, 26, 48, 70],
+      [6, 26, 50, 74],
+      [6, 30, 54, 78],
+      [6, 30, 56, 82],
+      [6, 30, 58, 86],
+      [6, 34, 62, 90],
+      [6, 28, 50, 72, 94],
+      [6, 26, 50, 74, 98],
+      [6, 30, 54, 78, 102],
+      [6, 28, 54, 80, 106],
+      [6, 32, 58, 84, 110],
+      [6, 30, 58, 86, 114],
+      [6, 34, 62, 90, 118],
+      [6, 26, 50, 74, 98, 122],
+      [6, 30, 54, 78, 102, 126],
+      [6, 26, 52, 78, 104, 130],
+      [6, 30, 56, 82, 108, 134],
+      [6, 34, 60, 86, 112, 138],
+      [6, 30, 58, 86, 114, 142],
+      [6, 34, 62, 90, 118, 146],
+      [6, 30, 54, 78, 102, 126, 150],
+      [6, 24, 50, 76, 102, 128, 154],
+      [6, 28, 54, 80, 106, 132, 158],
+      [6, 32, 58, 84, 110, 136, 162],
+      [6, 26, 54, 82, 110, 138, 166],
+      [6, 30, 58, 86, 114, 142, 170]
+    ];
+    var G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0);
+    var G18 = (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0);
+    var G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1);
+
+    var _this = {};
+
+    var getBCHDigit = function(data) {
+      var digit = 0;
+      while (data != 0) {
+        digit += 1;
+        data >>>= 1;
+      }
+      return digit;
+    };
+
+    _this.getBCHTypeInfo = function(data) {
+      var d = data << 10;
+      while (getBCHDigit(d) - getBCHDigit(G15) >= 0) {
+        d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15) ) );
+      }
+      return ( (data << 10) | d) ^ G15_MASK;
+    };
+
+    _this.getBCHTypeNumber = function(data) {
+      var d = data << 12;
+      while (getBCHDigit(d) - getBCHDigit(G18) >= 0) {
+        d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18) ) );
+      }
+      return (data << 12) | d;
+    };
+
+    _this.getPatternPosition = function(typeNumber) {
+      return PATTERN_POSITION_TABLE[typeNumber - 1];
+    };
+
+    _this.getMaskFunction = function(maskPattern) {
+
+      switch (maskPattern) {
+
+      case QRMaskPattern.PATTERN000 :
+        return function(i, j) { return (i + j) % 2 == 0; };
+      case QRMaskPattern.PATTERN001 :
+        return function(i, j) { return i % 2 == 0; };
+      case QRMaskPattern.PATTERN010 :
+        return function(i, j) { return j % 3 == 0; };
+      case QRMaskPattern.PATTERN011 :
+        return function(i, j) { return (i + j) % 3 == 0; };
+      case QRMaskPattern.PATTERN100 :
+        return function(i, j) { return (Math.floor(i / 2) + Math.floor(j / 3) ) % 2 == 0; };
+      case QRMaskPattern.PATTERN101 :
+        return function(i, j) { return (i * j) % 2 + (i * j) % 3 == 0; };
+      case QRMaskPattern.PATTERN110 :
+        return function(i, j) { return ( (i * j) % 2 + (i * j) % 3) % 2 == 0; };
+      case QRMaskPattern.PATTERN111 :
+        return function(i, j) { return ( (i * j) % 3 + (i + j) % 2) % 2 == 0; };
+
+      default :
+        throw 'bad maskPattern:' + maskPattern;
+      }
+    };
+
+    _this.getErrorCorrectPolynomial = function(errorCorrectLength) {
+      var a = qrPolynomial([1], 0);
+      for (var i = 0; i < errorCorrectLength; i += 1) {
+        a = a.multiply(qrPolynomial([1, QRMath.gexp(i)], 0) );
+      }
+      return a;
+    };
+
+    _this.getLengthInBits = function(mode, type) {
+
+      if (1 <= type && type < 10) {
+
+        // 1 - 9
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 10;
+        case QRMode.MODE_ALPHA_NUM : return 9;
+        case QRMode.MODE_8BIT_BYTE : return 8;
+        case QRMode.MODE_KANJI     : return 8;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else if (type < 27) {
+
+        // 10 - 26
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 12;
+        case QRMode.MODE_ALPHA_NUM : return 11;
+        case QRMode.MODE_8BIT_BYTE : return 16;
+        case QRMode.MODE_KANJI     : return 10;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else if (type < 41) {
+
+        // 27 - 40
+
+        switch(mode) {
+        case QRMode.MODE_NUMBER    : return 14;
+        case QRMode.MODE_ALPHA_NUM : return 13;
+        case QRMode.MODE_8BIT_BYTE : return 16;
+        case QRMode.MODE_KANJI     : return 12;
+        default :
+          throw 'mode:' + mode;
+        }
+
+      } else {
+        throw 'type:' + type;
+      }
+    };
+
+    _this.getLostPoint = function(qrcode) {
+
+      var moduleCount = qrcode.getModuleCount();
+
+      var lostPoint = 0;
+
+      // LEVEL1
+
+      for (var row = 0; row < moduleCount; row += 1) {
+        for (var col = 0; col < moduleCount; col += 1) {
+
+          var sameCount = 0;
+          var dark = qrcode.isDark(row, col);
+
+          for (var r = -1; r <= 1; r += 1) {
+
+            if (row + r < 0 || moduleCount <= row + r) {
+              continue;
+            }
+
+            for (var c = -1; c <= 1; c += 1) {
+
+              if (col + c < 0 || moduleCount <= col + c) {
+                continue;
+              }
+
+              if (r == 0 && c == 0) {
+                continue;
+              }
+
+              if (dark == qrcode.isDark(row + r, col + c) ) {
+                sameCount += 1;
+              }
+            }
+          }
+
+          if (sameCount > 5) {
+            lostPoint += (3 + sameCount - 5);
+          }
+        }
+      };
+
+      // LEVEL2
+
+      for (var row = 0; row < moduleCount - 1; row += 1) {
+        for (var col = 0; col < moduleCount - 1; col += 1) {
+          var count = 0;
+          if (qrcode.isDark(row, col) ) count += 1;
+          if (qrcode.isDark(row + 1, col) ) count += 1;
+          if (qrcode.isDark(row, col + 1) ) count += 1;
+          if (qrcode.isDark(row + 1, col + 1) ) count += 1;
+          if (count == 0 || count == 4) {
+            lostPoint += 3;
+          }
+        }
+      }
+
+      // LEVEL3
+
+      for (var row = 0; row < moduleCount; row += 1) {
+        for (var col = 0; col < moduleCount - 6; col += 1) {
+          if (qrcode.isDark(row, col)
+              && !qrcode.isDark(row, col + 1)
+              &&  qrcode.isDark(row, col + 2)
+              &&  qrcode.isDark(row, col + 3)
+              &&  qrcode.isDark(row, col + 4)
+              && !qrcode.isDark(row, col + 5)
+              &&  qrcode.isDark(row, col + 6) ) {
+            lostPoint += 40;
+          }
+        }
+      }
+
+      for (var col = 0; col < moduleCount; col += 1) {
+        for (var row = 0; row < moduleCount - 6; row += 1) {
+          if (qrcode.isDark(row, col)
+              && !qrcode.isDark(row + 1, col)
+              &&  qrcode.isDark(row + 2, col)
+              &&  qrcode.isDark(row + 3, col)
+              &&  qrcode.isDark(row + 4, col)
+              && !qrcode.isDark(row + 5, col)
+              &&  qrcode.isDark(row + 6, col) ) {
+            lostPoint += 40;
+          }
+        }
+      }
+
+      // LEVEL4
+
+      var darkCount = 0;
+
+      for (var col = 0; col < moduleCount; col += 1) {
+        for (var row = 0; row < moduleCount; row += 1) {
+          if (qrcode.isDark(row, col) ) {
+            darkCount += 1;
+          }
+        }
+      }
+
+      var ratio = Math.abs(100 * darkCount / moduleCount / moduleCount - 50) / 5;
+      lostPoint += ratio * 10;
+
+      return lostPoint;
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // QRMath
+  //---------------------------------------------------------------------
+
+  var QRMath = function() {
+
+    var EXP_TABLE = new Array(256);
+    var LOG_TABLE = new Array(256);
+
+    // initialize tables
+    for (var i = 0; i < 8; i += 1) {
+      EXP_TABLE[i] = 1 << i;
+    }
+    for (var i = 8; i < 256; i += 1) {
+      EXP_TABLE[i] = EXP_TABLE[i - 4]
+        ^ EXP_TABLE[i - 5]
+        ^ EXP_TABLE[i - 6]
+        ^ EXP_TABLE[i - 8];
+    }
+    for (var i = 0; i < 255; i += 1) {
+      LOG_TABLE[EXP_TABLE[i] ] = i;
+    }
+
+    var _this = {};
+
+    _this.glog = function(n) {
+
+      if (n < 1) {
+        throw 'glog(' + n + ')';
+      }
+
+      return LOG_TABLE[n];
+    };
+
+    _this.gexp = function(n) {
+
+      while (n < 0) {
+        n += 255;
+      }
+
+      while (n >= 256) {
+        n -= 255;
+      }
+
+      return EXP_TABLE[n];
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // qrPolynomial
+  //---------------------------------------------------------------------
+
+  function qrPolynomial(num, shift) {
+
+    if (typeof num.length == 'undefined') {
+      throw num.length + '/' + shift;
+    }
+
+    var _num = function() {
+      var offset = 0;
+      while (offset < num.length && num[offset] == 0) {
+        offset += 1;
+      }
+      var _num = new Array(num.length - offset + shift);
+      for (var i = 0; i < num.length - offset; i += 1) {
+        _num[i] = num[i + offset];
+      }
+      return _num;
+    }();
+
+    var _this = {};
+
+    _this.getAt = function(index) {
+      return _num[index];
+    };
+
+    _this.getLength = function() {
+      return _num.length;
+    };
+
+    _this.multiply = function(e) {
+
+      var num = new Array(_this.getLength() + e.getLength() - 1);
+
+      for (var i = 0; i < _this.getLength(); i += 1) {
+        for (var j = 0; j < e.getLength(); j += 1) {
+          num[i + j] ^= QRMath.gexp(QRMath.glog(_this.getAt(i) ) + QRMath.glog(e.getAt(j) ) );
+        }
+      }
+
+      return qrPolynomial(num, 0);
+    };
+
+    _this.mod = function(e) {
+
+      if (_this.getLength() - e.getLength() < 0) {
+        return _this;
+      }
+
+      var ratio = QRMath.glog(_this.getAt(0) ) - QRMath.glog(e.getAt(0) );
+
+      var num = new Array(_this.getLength() );
+      for (var i = 0; i < _this.getLength(); i += 1) {
+        num[i] = _this.getAt(i);
+      }
+
+      for (var i = 0; i < e.getLength(); i += 1) {
+        num[i] ^= QRMath.gexp(QRMath.glog(e.getAt(i) ) + ratio);
+      }
+
+      // recursive call
+      return qrPolynomial(num, 0).mod(e);
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // QRRSBlock
+  //---------------------------------------------------------------------
+
+  var QRRSBlock = function() {
+
+    var RS_BLOCK_TABLE = [
+
+      // L
+      // M
+      // Q
+      // H
+
+      // 1
+      [1, 26, 19],
+      [1, 26, 16],
+      [1, 26, 13],
+      [1, 26, 9],
+
+      // 2
+      [1, 44, 34],
+      [1, 44, 28],
+      [1, 44, 22],
+      [1, 44, 16],
+
+      // 3
+      [1, 70, 55],
+      [1, 70, 44],
+      [2, 35, 17],
+      [2, 35, 13],
+
+      // 4
+      [1, 100, 80],
+      [2, 50, 32],
+      [2, 50, 24],
+      [4, 25, 9],
+
+      // 5
+      [1, 134, 108],
+      [2, 67, 43],
+      [2, 33, 15, 2, 34, 16],
+      [2, 33, 11, 2, 34, 12],
+
+      // 6
+      [2, 86, 68],
+      [4, 43, 27],
+      [4, 43, 19],
+      [4, 43, 15],
+
+      // 7
+      [2, 98, 78],
+      [4, 49, 31],
+      [2, 32, 14, 4, 33, 15],
+      [4, 39, 13, 1, 40, 14],
+
+      // 8
+      [2, 121, 97],
+      [2, 60, 38, 2, 61, 39],
+      [4, 40, 18, 2, 41, 19],
+      [4, 40, 14, 2, 41, 15],
+
+      // 9
+      [2, 146, 116],
+      [3, 58, 36, 2, 59, 37],
+      [4, 36, 16, 4, 37, 17],
+      [4, 36, 12, 4, 37, 13],
+
+      // 10
+      [2, 86, 68, 2, 87, 69],
+      [4, 69, 43, 1, 70, 44],
+      [6, 43, 19, 2, 44, 20],
+      [6, 43, 15, 2, 44, 16],
+
+      // 11
+      [4, 101, 81],
+      [1, 80, 50, 4, 81, 51],
+      [4, 50, 22, 4, 51, 23],
+      [3, 36, 12, 8, 37, 13],
+
+      // 12
+      [2, 116, 92, 2, 117, 93],
+      [6, 58, 36, 2, 59, 37],
+      [4, 46, 20, 6, 47, 21],
+      [7, 42, 14, 4, 43, 15],
+
+      // 13
+      [4, 133, 107],
+      [8, 59, 37, 1, 60, 38],
+      [8, 44, 20, 4, 45, 21],
+      [12, 33, 11, 4, 34, 12],
+
+      // 14
+      [3, 145, 115, 1, 146, 116],
+      [4, 64, 40, 5, 65, 41],
+      [11, 36, 16, 5, 37, 17],
+      [11, 36, 12, 5, 37, 13],
+
+      // 15
+      [5, 109, 87, 1, 110, 88],
+      [5, 65, 41, 5, 66, 42],
+      [5, 54, 24, 7, 55, 25],
+      [11, 36, 12, 7, 37, 13],
+
+      // 16
+      [5, 122, 98, 1, 123, 99],
+      [7, 73, 45, 3, 74, 46],
+      [15, 43, 19, 2, 44, 20],
+      [3, 45, 15, 13, 46, 16],
+
+      // 17
+      [1, 135, 107, 5, 136, 108],
+      [10, 74, 46, 1, 75, 47],
+      [1, 50, 22, 15, 51, 23],
+      [2, 42, 14, 17, 43, 15],
+
+      // 18
+      [5, 150, 120, 1, 151, 121],
+      [9, 69, 43, 4, 70, 44],
+      [17, 50, 22, 1, 51, 23],
+      [2, 42, 14, 19, 43, 15],
+
+      // 19
+      [3, 141, 113, 4, 142, 114],
+      [3, 70, 44, 11, 71, 45],
+      [17, 47, 21, 4, 48, 22],
+      [9, 39, 13, 16, 40, 14],
+
+      // 20
+      [3, 135, 107, 5, 136, 108],
+      [3, 67, 41, 13, 68, 42],
+      [15, 54, 24, 5, 55, 25],
+      [15, 43, 15, 10, 44, 16],
+
+      // 21
+      [4, 144, 116, 4, 145, 117],
+      [17, 68, 42],
+      [17, 50, 22, 6, 51, 23],
+      [19, 46, 16, 6, 47, 17],
+
+      // 22
+      [2, 139, 111, 7, 140, 112],
+      [17, 74, 46],
+      [7, 54, 24, 16, 55, 25],
+      [34, 37, 13],
+
+      // 23
+      [4, 151, 121, 5, 152, 122],
+      [4, 75, 47, 14, 76, 48],
+      [11, 54, 24, 14, 55, 25],
+      [16, 45, 15, 14, 46, 16],
+
+      // 24
+      [6, 147, 117, 4, 148, 118],
+      [6, 73, 45, 14, 74, 46],
+      [11, 54, 24, 16, 55, 25],
+      [30, 46, 16, 2, 47, 17],
+
+      // 25
+      [8, 132, 106, 4, 133, 107],
+      [8, 75, 47, 13, 76, 48],
+      [7, 54, 24, 22, 55, 25],
+      [22, 45, 15, 13, 46, 16],
+
+      // 26
+      [10, 142, 114, 2, 143, 115],
+      [19, 74, 46, 4, 75, 47],
+      [28, 50, 22, 6, 51, 23],
+      [33, 46, 16, 4, 47, 17],
+
+      // 27
+      [8, 152, 122, 4, 153, 123],
+      [22, 73, 45, 3, 74, 46],
+      [8, 53, 23, 26, 54, 24],
+      [12, 45, 15, 28, 46, 16],
+
+      // 28
+      [3, 147, 117, 10, 148, 118],
+      [3, 73, 45, 23, 74, 46],
+      [4, 54, 24, 31, 55, 25],
+      [11, 45, 15, 31, 46, 16],
+
+      // 29
+      [7, 146, 116, 7, 147, 117],
+      [21, 73, 45, 7, 74, 46],
+      [1, 53, 23, 37, 54, 24],
+      [19, 45, 15, 26, 46, 16],
+
+      // 30
+      [5, 145, 115, 10, 146, 116],
+      [19, 75, 47, 10, 76, 48],
+      [15, 54, 24, 25, 55, 25],
+      [23, 45, 15, 25, 46, 16],
+
+      // 31
+      [13, 145, 115, 3, 146, 116],
+      [2, 74, 46, 29, 75, 47],
+      [42, 54, 24, 1, 55, 25],
+      [23, 45, 15, 28, 46, 16],
+
+      // 32
+      [17, 145, 115],
+      [10, 74, 46, 23, 75, 47],
+      [10, 54, 24, 35, 55, 25],
+      [19, 45, 15, 35, 46, 16],
+
+      // 33
+      [17, 145, 115, 1, 146, 116],
+      [14, 74, 46, 21, 75, 47],
+      [29, 54, 24, 19, 55, 25],
+      [11, 45, 15, 46, 46, 16],
+
+      // 34
+      [13, 145, 115, 6, 146, 116],
+      [14, 74, 46, 23, 75, 47],
+      [44, 54, 24, 7, 55, 25],
+      [59, 46, 16, 1, 47, 17],
+
+      // 35
+      [12, 151, 121, 7, 152, 122],
+      [12, 75, 47, 26, 76, 48],
+      [39, 54, 24, 14, 55, 25],
+      [22, 45, 15, 41, 46, 16],
+
+      // 36
+      [6, 151, 121, 14, 152, 122],
+      [6, 75, 47, 34, 76, 48],
+      [46, 54, 24, 10, 55, 25],
+      [2, 45, 15, 64, 46, 16],
+
+      // 37
+      [17, 152, 122, 4, 153, 123],
+      [29, 74, 46, 14, 75, 47],
+      [49, 54, 24, 10, 55, 25],
+      [24, 45, 15, 46, 46, 16],
+
+      // 38
+      [4, 152, 122, 18, 153, 123],
+      [13, 74, 46, 32, 75, 47],
+      [48, 54, 24, 14, 55, 25],
+      [42, 45, 15, 32, 46, 16],
+
+      // 39
+      [20, 147, 117, 4, 148, 118],
+      [40, 75, 47, 7, 76, 48],
+      [43, 54, 24, 22, 55, 25],
+      [10, 45, 15, 67, 46, 16],
+
+      // 40
+      [19, 148, 118, 6, 149, 119],
+      [18, 75, 47, 31, 76, 48],
+      [34, 54, 24, 34, 55, 25],
+      [20, 45, 15, 61, 46, 16]
+    ];
+
+    var qrRSBlock = function(totalCount, dataCount) {
+      var _this = {};
+      _this.totalCount = totalCount;
+      _this.dataCount = dataCount;
+      return _this;
+    };
+
+    var _this = {};
+
+    var getRsBlockTable = function(typeNumber, errorCorrectionLevel) {
+
+      switch(errorCorrectionLevel) {
+      case QRErrorCorrectionLevel.L :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
+      case QRErrorCorrectionLevel.M :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1];
+      case QRErrorCorrectionLevel.Q :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
+      case QRErrorCorrectionLevel.H :
+        return RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
+      default :
+        return undefined;
+      }
+    };
+
+    _this.getRSBlocks = function(typeNumber, errorCorrectionLevel) {
+
+      var rsBlock = getRsBlockTable(typeNumber, errorCorrectionLevel);
+
+      if (typeof rsBlock == 'undefined') {
+        throw 'bad rs block @ typeNumber:' + typeNumber +
+            '/errorCorrectionLevel:' + errorCorrectionLevel;
+      }
+
+      var length = rsBlock.length / 3;
+
+      var list = [];
+
+      for (var i = 0; i < length; i += 1) {
+
+        var count = rsBlock[i * 3 + 0];
+        var totalCount = rsBlock[i * 3 + 1];
+        var dataCount = rsBlock[i * 3 + 2];
+
+        for (var j = 0; j < count; j += 1) {
+          list.push(qrRSBlock(totalCount, dataCount) );
+        }
+      }
+
+      return list;
+    };
+
+    return _this;
+  }();
+
+  //---------------------------------------------------------------------
+  // qrBitBuffer
+  //---------------------------------------------------------------------
+
+  var qrBitBuffer = function() {
+
+    var _buffer = [];
+    var _length = 0;
+
+    var _this = {};
+
+    _this.getBuffer = function() {
+      return _buffer;
+    };
+
+    _this.getAt = function(index) {
+      var bufIndex = Math.floor(index / 8);
+      return ( (_buffer[bufIndex] >>> (7 - index % 8) ) & 1) == 1;
+    };
+
+    _this.put = function(num, length) {
+      for (var i = 0; i < length; i += 1) {
+        _this.putBit( ( (num >>> (length - i - 1) ) & 1) == 1);
+      }
+    };
+
+    _this.getLengthInBits = function() {
+      return _length;
+    };
+
+    _this.putBit = function(bit) {
+
+      var bufIndex = Math.floor(_length / 8);
+      if (_buffer.length <= bufIndex) {
+        _buffer.push(0);
+      }
+
+      if (bit) {
+        _buffer[bufIndex] |= (0x80 >>> (_length % 8) );
+      }
+
+      _length += 1;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrNumber
+  //---------------------------------------------------------------------
+
+  var qrNumber = function(data) {
+
+    var _mode = QRMode.MODE_NUMBER;
+    var _data = data;
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _data.length;
+    };
+
+    _this.write = function(buffer) {
+
+      var data = _data;
+
+      var i = 0;
+
+      while (i + 2 < data.length) {
+        buffer.put(strToNum(data.substring(i, i + 3) ), 10);
+        i += 3;
+      }
+
+      if (i < data.length) {
+        if (data.length - i == 1) {
+          buffer.put(strToNum(data.substring(i, i + 1) ), 4);
+        } else if (data.length - i == 2) {
+          buffer.put(strToNum(data.substring(i, i + 2) ), 7);
+        }
+      }
+    };
+
+    var strToNum = function(s) {
+      var num = 0;
+      for (var i = 0; i < s.length; i += 1) {
+        num = num * 10 + chatToNum(s.charAt(i) );
+      }
+      return num;
+    };
+
+    var chatToNum = function(c) {
+      if ('0' <= c && c <= '9') {
+        return c.charCodeAt(0) - '0'.charCodeAt(0);
+      }
+      throw 'illegal char :' + c;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrAlphaNum
+  //---------------------------------------------------------------------
+
+  var qrAlphaNum = function(data) {
+
+    var _mode = QRMode.MODE_ALPHA_NUM;
+    var _data = data;
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _data.length;
+    };
+
+    _this.write = function(buffer) {
+
+      var s = _data;
+
+      var i = 0;
+
+      while (i + 1 < s.length) {
+        buffer.put(
+          getCode(s.charAt(i) ) * 45 +
+          getCode(s.charAt(i + 1) ), 11);
+        i += 2;
+      }
+
+      if (i < s.length) {
+        buffer.put(getCode(s.charAt(i) ), 6);
+      }
+    };
+
+    var getCode = function(c) {
+
+      if ('0' <= c && c <= '9') {
+        return c.charCodeAt(0) - '0'.charCodeAt(0);
+      } else if ('A' <= c && c <= 'Z') {
+        return c.charCodeAt(0) - 'A'.charCodeAt(0) + 10;
+      } else {
+        switch (c) {
+        case ' ' : return 36;
+        case '$' : return 37;
+        case '%' : return 38;
+        case '*' : return 39;
+        case '+' : return 40;
+        case '-' : return 41;
+        case '.' : return 42;
+        case '/' : return 43;
+        case ':' : return 44;
+        default :
+          throw 'illegal char :' + c;
+        }
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qr8BitByte
+  //---------------------------------------------------------------------
+
+  var qr8BitByte = function(data) {
+
+    var _mode = QRMode.MODE_8BIT_BYTE;
+    var _data = data;
+    var _bytes = qrcode.stringToBytes(data);
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return _bytes.length;
+    };
+
+    _this.write = function(buffer) {
+      for (var i = 0; i < _bytes.length; i += 1) {
+        buffer.put(_bytes[i], 8);
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // qrKanji
+  //---------------------------------------------------------------------
+
+  var qrKanji = function(data) {
+
+    var _mode = QRMode.MODE_KANJI;
+    var _data = data;
+
+    var stringToBytes = qrcode.stringToBytesFuncs['SJIS'];
+    if (!stringToBytes) {
+      throw 'sjis not supported.';
+    }
+    !function(c, code) {
+      // self test for sjis support.
+      var test = stringToBytes(c);
+      if (test.length != 2 || ( (test[0] << 8) | test[1]) != code) {
+        throw 'sjis not supported.';
+      }
+    }('\u53cb', 0x9746);
+
+    var _bytes = stringToBytes(data);
+
+    var _this = {};
+
+    _this.getMode = function() {
+      return _mode;
+    };
+
+    _this.getLength = function(buffer) {
+      return ~~(_bytes.length / 2);
+    };
+
+    _this.write = function(buffer) {
+
+      var data = _bytes;
+
+      var i = 0;
+
+      while (i + 1 < data.length) {
+
+        var c = ( (0xff & data[i]) << 8) | (0xff & data[i + 1]);
+
+        if (0x8140 <= c && c <= 0x9FFC) {
+          c -= 0x8140;
+        } else if (0xE040 <= c && c <= 0xEBBF) {
+          c -= 0xC140;
+        } else {
+          throw 'illegal char at ' + (i + 1) + '/' + c;
+        }
+
+        c = ( (c >>> 8) & 0xff) * 0xC0 + (c & 0xff);
+
+        buffer.put(c, 13);
+
+        i += 2;
+      }
+
+      if (i < data.length) {
+        throw 'illegal char at ' + (i + 1);
+      }
+    };
+
+    return _this;
+  };
+
+  //=====================================================================
+  // GIF Support etc.
+  //
+
+  //---------------------------------------------------------------------
+  // byteArrayOutputStream
+  //---------------------------------------------------------------------
+
+  var byteArrayOutputStream = function() {
+
+    var _bytes = [];
+
+    var _this = {};
+
+    _this.writeByte = function(b) {
+      _bytes.push(b & 0xff);
+    };
+
+    _this.writeShort = function(i) {
+      _this.writeByte(i);
+      _this.writeByte(i >>> 8);
+    };
+
+    _this.writeBytes = function(b, off, len) {
+      off = off || 0;
+      len = len || b.length;
+      for (var i = 0; i < len; i += 1) {
+        _this.writeByte(b[i + off]);
+      }
+    };
+
+    _this.writeString = function(s) {
+      for (var i = 0; i < s.length; i += 1) {
+        _this.writeByte(s.charCodeAt(i) );
+      }
+    };
+
+    _this.toByteArray = function() {
+      return _bytes;
+    };
+
+    _this.toString = function() {
+      var s = '';
+      s += '[';
+      for (var i = 0; i < _bytes.length; i += 1) {
+        if (i > 0) {
+          s += ',';
+        }
+        s += _bytes[i];
+      }
+      s += ']';
+      return s;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // base64EncodeOutputStream
+  //---------------------------------------------------------------------
+
+  var base64EncodeOutputStream = function() {
+
+    var _buffer = 0;
+    var _buflen = 0;
+    var _length = 0;
+    var _base64 = '';
+
+    var _this = {};
+
+    var writeEncoded = function(b) {
+      _base64 += String.fromCharCode(encode(b & 0x3f) );
+    };
+
+    var encode = function(n) {
+      if (n < 0) {
+        // error.
+      } else if (n < 26) {
+        return 0x41 + n;
+      } else if (n < 52) {
+        return 0x61 + (n - 26);
+      } else if (n < 62) {
+        return 0x30 + (n - 52);
+      } else if (n == 62) {
+        return 0x2b;
+      } else if (n == 63) {
+        return 0x2f;
+      }
+      throw 'n:' + n;
+    };
+
+    _this.writeByte = function(n) {
+
+      _buffer = (_buffer << 8) | (n & 0xff);
+      _buflen += 8;
+      _length += 1;
+
+      while (_buflen >= 6) {
+        writeEncoded(_buffer >>> (_buflen - 6) );
+        _buflen -= 6;
+      }
+    };
+
+    _this.flush = function() {
+
+      if (_buflen > 0) {
+        writeEncoded(_buffer << (6 - _buflen) );
+        _buffer = 0;
+        _buflen = 0;
+      }
+
+      if (_length % 3 != 0) {
+        // padding
+        var padlen = 3 - _length % 3;
+        for (var i = 0; i < padlen; i += 1) {
+          _base64 += '=';
+        }
+      }
+    };
+
+    _this.toString = function() {
+      return _base64;
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // base64DecodeInputStream
+  //---------------------------------------------------------------------
+
+  var base64DecodeInputStream = function(str) {
+
+    var _str = str;
+    var _pos = 0;
+    var _buffer = 0;
+    var _buflen = 0;
+
+    var _this = {};
+
+    _this.read = function() {
+
+      while (_buflen < 8) {
+
+        if (_pos >= _str.length) {
+          if (_buflen == 0) {
+            return -1;
+          }
+          throw 'unexpected end of file./' + _buflen;
+        }
+
+        var c = _str.charAt(_pos);
+        _pos += 1;
+
+        if (c == '=') {
+          _buflen = 0;
+          return -1;
+        } else if (c.match(/^\s$/) ) {
+          // ignore if whitespace.
+          continue;
+        }
+
+        _buffer = (_buffer << 6) | decode(c.charCodeAt(0) );
+        _buflen += 6;
+      }
+
+      var n = (_buffer >>> (_buflen - 8) ) & 0xff;
+      _buflen -= 8;
+      return n;
+    };
+
+    var decode = function(c) {
+      if (0x41 <= c && c <= 0x5a) {
+        return c - 0x41;
+      } else if (0x61 <= c && c <= 0x7a) {
+        return c - 0x61 + 26;
+      } else if (0x30 <= c && c <= 0x39) {
+        return c - 0x30 + 52;
+      } else if (c == 0x2b) {
+        return 62;
+      } else if (c == 0x2f) {
+        return 63;
+      } else {
+        throw 'c:' + c;
+      }
+    };
+
+    return _this;
+  };
+
+  //---------------------------------------------------------------------
+  // gifImage (B/W)
+  //---------------------------------------------------------------------
+
+  var gifImage = function(width, height) {
+
+    var _width = width;
+    var _height = height;
+    var _data = new Array(width * height);
+
+    var _this = {};
+
+    _this.setPixel = function(x, y, pixel) {
+      _data[y * _width + x] = pixel;
+    };
+
+    _this.write = function(out) {
+
+      //---------------------------------
+      // GIF Signature
+
+      out.writeString('GIF87a');
+
+      //---------------------------------
+      // Screen Descriptor
+
+      out.writeShort(_width);
+      out.writeShort(_height);
+
+      out.writeByte(0x80); // 2bit
+      out.writeByte(0);
+      out.writeByte(0);
+
+      //---------------------------------
+      // Global Color Map
+
+      // black
+      out.writeByte(0x00);
+      out.writeByte(0x00);
+      out.writeByte(0x00);
+
+      // white
+      out.writeByte(0xff);
+      out.writeByte(0xff);
+      out.writeByte(0xff);
+
+      //---------------------------------
+      // Image Descriptor
+
+      out.writeString(',');
+      out.writeShort(0);
+      out.writeShort(0);
+      out.writeShort(_width);
+      out.writeShort(_height);
+      out.writeByte(0);
+
+      //---------------------------------
+      // Local Color Map
+
+      //---------------------------------
+      // Raster Data
+
+      var lzwMinCodeSize = 2;
+      var raster = getLZWRaster(lzwMinCodeSize);
+
+      out.writeByte(lzwMinCodeSize);
+
+      var offset = 0;
+
+      while (raster.length - offset > 255) {
+        out.writeByte(255);
+        out.writeBytes(raster, offset, 255);
+        offset += 255;
+      }
+
+      out.writeByte(raster.length - offset);
+      out.writeBytes(raster, offset, raster.length - offset);
+      out.writeByte(0x00);
+
+      //---------------------------------
+      // GIF Terminator
+      out.writeString(';');
+    };
+
+    var bitOutputStream = function(out) {
+
+      var _out = out;
+      var _bitLength = 0;
+      var _bitBuffer = 0;
+
+      var _this = {};
+
+      _this.write = function(data, length) {
+
+        if ( (data >>> length) != 0) {
+          throw 'length over';
+        }
+
+        while (_bitLength + length >= 8) {
+          _out.writeByte(0xff & ( (data << _bitLength) | _bitBuffer) );
+          length -= (8 - _bitLength);
+          data >>>= (8 - _bitLength);
+          _bitBuffer = 0;
+          _bitLength = 0;
+        }
+
+        _bitBuffer = (data << _bitLength) | _bitBuffer;
+        _bitLength = _bitLength + length;
+      };
+
+      _this.flush = function() {
+        if (_bitLength > 0) {
+          _out.writeByte(_bitBuffer);
+        }
+      };
+
+      return _this;
+    };
+
+    var getLZWRaster = function(lzwMinCodeSize) {
+
+      var clearCode = 1 << lzwMinCodeSize;
+      var endCode = (1 << lzwMinCodeSize) + 1;
+      var bitLength = lzwMinCodeSize + 1;
+
+      // Setup LZWTable
+      var table = lzwTable();
+
+      for (var i = 0; i < clearCode; i += 1) {
+        table.add(String.fromCharCode(i) );
+      }
+      table.add(String.fromCharCode(clearCode) );
+      table.add(String.fromCharCode(endCode) );
+
+      var byteOut = byteArrayOutputStream();
+      var bitOut = bitOutputStream(byteOut);
+
+      // clear code
+      bitOut.write(clearCode, bitLength);
+
+      var dataIndex = 0;
+
+      var s = String.fromCharCode(_data[dataIndex]);
+      dataIndex += 1;
+
+      while (dataIndex < _data.length) {
+
+        var c = String.fromCharCode(_data[dataIndex]);
+        dataIndex += 1;
+
+        if (table.contains(s + c) ) {
+
+          s = s + c;
+
+        } else {
+
+          bitOut.write(table.indexOf(s), bitLength);
+
+          if (table.size() < 0xfff) {
+
+            if (table.size() == (1 << bitLength) ) {
+              bitLength += 1;
+            }
+
+            table.add(s + c);
+          }
+
+          s = c;
+        }
+      }
+
+      bitOut.write(table.indexOf(s), bitLength);
+
+      // end code
+      bitOut.write(endCode, bitLength);
+
+      bitOut.flush();
+
+      return byteOut.toByteArray();
+    };
+
+    var lzwTable = function() {
+
+      var _map = {};
+      var _size = 0;
+
+      var _this = {};
+
+      _this.add = function(key) {
+        if (_this.contains(key) ) {
+          throw 'dup key:' + key;
+        }
+        _map[key] = _size;
+        _size += 1;
+      };
+
+      _this.size = function() {
+        return _size;
+      };
+
+      _this.indexOf = function(key) {
+        return _map[key];
+      };
+
+      _this.contains = function(key) {
+        return typeof _map[key] != 'undefined';
+      };
+
+      return _this;
+    };
+
+    return _this;
+  };
+
+  var createDataURL = function(width, height, getPixel) {
+    var gif = gifImage(width, height);
+    for (var y = 0; y < height; y += 1) {
+      for (var x = 0; x < width; x += 1) {
+        gif.setPixel(x, y, getPixel(x, y) );
+      }
+    }
+
+    var b = byteArrayOutputStream();
+    gif.write(b);
+
+    var base64 = base64EncodeOutputStream();
+    var bytes = b.toByteArray();
+    for (var i = 0; i < bytes.length; i += 1) {
+      base64.writeByte(bytes[i]);
+    }
+    base64.flush();
+
+    return 'data:image/gif;base64,' + base64;
+  };
+
+  //---------------------------------------------------------------------
+  // returns qrcode function.
+
+  return qrcode;
+}();
+
+// multibyte support
+!function() {
+
+  qrcode.stringToBytesFuncs['UTF-8'] = function(s) {
+    // http://stackoverflow.com/questions/18729405/how-to-convert-utf8-string-to-byte-array
+    function toUTF8Array(str) {
+      var utf8 = [];
+      for (var i=0; i < str.length; i++) {
+        var charcode = str.charCodeAt(i);
+        if (charcode < 0x80) utf8.push(charcode);
+        else if (charcode < 0x800) {
+          utf8.push(0xc0 | (charcode >> 6),
+              0x80 | (charcode & 0x3f));
+        }
+        else if (charcode < 0xd800 || charcode >= 0xe000) {
+          utf8.push(0xe0 | (charcode >> 12),
+              0x80 | ((charcode>>6) & 0x3f),
+              0x80 | (charcode & 0x3f));
+        }
+        // surrogate pair
+        else {
+          i++;
+          // UTF-16 encodes 0x10000-0x10FFFF by
+          // subtracting 0x10000 and splitting the
+          // 20 bits of 0x0-0xFFFFF into two halves
+          charcode = 0x10000 + (((charcode & 0x3ff)<<10)
+            | (str.charCodeAt(i) & 0x3ff));
+          utf8.push(0xf0 | (charcode >>18),
+              0x80 | ((charcode>>12) & 0x3f),
+              0x80 | ((charcode>>6) & 0x3f),
+              0x80 | (charcode & 0x3f));
+        }
+      }
+      return utf8;
+    }
+    return toUTF8Array(s);
+  };
+
+}();
+
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+      define([], factory);
+  } else if (typeof exports === 'object') {
+      module.exports = factory();
+  }
+}(function () {
+    return qrcode;
+}));
+
+</script>
+</body>
+</html>
