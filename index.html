@@ -11,7 +11,8 @@
 <meta property="og:description" content="Fotos, canción, carta y contador del tiempo juntos en una página privada con QR.">
 <meta property="og:type" content="website">
 <!-- EDITAR: imagen para compartir en redes (1200x630) -->
-<!-- <meta property="og:image" content="https://TU_DOMINIO/og.jpg"> -->
+<meta property="og:image" content="https://giovanniharo.github.io/Loren-Ipsum/img/og.jpg"><!-- EDITAR: cambia el dominio al publicar en el definitivo -->
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -97,6 +98,8 @@ section.alt{background:var(--bg-2)}
 .phone{border-radius:38px;padding:12px;background:#0d070b;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 6px rgba(255,255,255,.03)}
 .screen{border-radius:28px;overflow:hidden;background:linear-gradient(180deg,#2b1522,#170b13);padding:26px 18px;text-align:center;min-height:470px}
 .screen .ph{height:150px;border-radius:16px;margin:14px 0;background:linear-gradient(135deg,#ff8a7a 0%,#c74b7a 55%,#5b2a6e 100%);position:relative;overflow:hidden}
+.screen .ph img{width:100%;height:100%;object-fit:cover;object-position:47% 30%}
+.screen .ph.has::after{display:none}
 .screen .ph::after{content:"♥";position:absolute;inset:0;display:grid;place-items:center;font-size:3rem;color:rgba(255,255,255,.55)}
 .mini-count{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
 .mini-count div{background:rgba(255,255,255,.06);border-radius:10px;padding:8px 0}
@@ -306,7 +309,7 @@ body.lp{background:#12090f}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 34px}
 .gallery button{padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;background:var(--card)}
 .gallery button:first-child{grid-column:span 2;aspect-ratio:4/3}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transition:transform .4s}
 .gallery button:hover img{transform:scale(1.04)}
 .demo-photo{width:100%;height:100%;display:grid;place-items:center;font-size:2.4rem;color:rgba(255,255,255,.6)}
 .counter-box{background:linear-gradient(180deg,rgba(255,111,125,.12),rgba(42,24,36,.6));border:1px solid var(--line);border-radius:24px;padding:26px 16px;text-align:center;margin-bottom:34px}
@@ -373,7 +376,7 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
         <div class="phone"><div class="screen">
           <small class="muted">Nuestra historia</small>
           <div style="font:700 1.6rem var(--serif);margin-top:4px">Ana &amp; Mateo</div>
-          <div class="ph"></div>
+          <div class="ph has"><img src="img/demo-1.jpg" alt="" width="300" height="150" loading="eager"></div>
           <small class="muted">Juntos desde hace</small>
           <div class="mini-count"><div><b id="mk-y">4</b><span>años</span></div><div><b id="mk-m">2</b><span>meses</span></div><div><b id="mk-d">11</b><span>días</span></div></div>
           <p style="font-family:var(--serif);font-style:italic;margin:16px 0 0;color:var(--muted);font-size:.9rem">“Cada día contigo es mi lugar favorito…”</p>
@@ -684,7 +687,7 @@ const DEMO = {
   id: "demo", a: "Ana", b: "Mateo", from: "Ana", date: "2021-06-14", time: "20:00",
   song: { title: "Perfect", artist: "Ed Sheeran", url: "https://youtu.be/2Vv-BfVoq4g" },
   letter: "Mi querido Mateo,\n\nCada día a tu lado se ha vuelto mi parte favorita de la vida. Desde aquella noche de junio supe que algo bonito estaba empezando.\n\nGracias por las risas, por la paciencia y por elegirme incluso en los días difíciles. Contigo aprendí que el amor no es perfecto, es real.\n\nQue sigan sumando los segundos en este contador, porque quiero vivirlos todos contigo.",
-  sign: "Ana", photos: [], paid: true, demo: true, lang: "es"
+  sign: "Ana", photos: ["img/demo-1.jpg", "img/demo-2.jpg", "img/demo-3.jpg"], paid: true, demo: true, lang: "es"
 };
 
 /* ===================================================================
@@ -1125,8 +1128,9 @@ async function viewLove(p){
   const url = p.demo ? baseUrl() + "#/demo" : p.portable ? location.href : await shareUrl(p);
   const T = k => `<span data-t="${k}">${I18N[lang][k]}</span>`;   // texto traducible
   const emb = mediaEmbed(p.song?.url), hasSong = p.song && (p.song.title || p.song.url);
-  const photos = p.demo ? ["#ff8a7a,#c74b7a", "#ffb36b,#ff6f7d", "#8a4fa0,#3b1d48"].map(g => `<button type="button" tabindex="-1" aria-hidden="true"><div class="demo-photo" style="background:linear-gradient(135deg,${g})">♥</div></button>`).join("")
-    : (p.photos || []).map((src, i) => `<button type="button" data-ph="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("");
+  // En el demo, los espacios sin foto real se completan con un degradado
+  const demoFill = p.demo ? ["#ff8a7a,#c74b7a", "#ffb36b,#ff6f7d", "#8a4fa0,#3b1d48"].slice((p.photos || []).length).map(g => `<button type="button" tabindex="-1" aria-hidden="true"><div class="demo-photo" style="background:linear-gradient(135deg,${g})">♥</div></button>`).join("") : "";
+  const photos = (p.photos || []).map((src, i) => `<button type="button" data-ph="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("") + demoFill;
   const mems = (p.memories || []).filter(m => m.img);
   setView(`
     ${p.demo ? `<div class="lp-banner">${T("demo")} · <a href="#/crear" style="color:inherit">${T("create")} →</a></div>` : !p.paid ? `<div class="lp-banner">${T("preview")}</div>` : ""}
