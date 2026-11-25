@@ -318,10 +318,14 @@ body.lp{background:#12090f}
 .counter div{background:rgba(0,0,0,.25);border-radius:16px;padding:14px 4px}
 .counter b{display:block;font:700 clamp(1.8rem,8vw,2.4rem)/1.1 var(--serif);font-variant-numeric:tabular-nums}
 .counter span{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.letter{background:#fbf3ea;color:#3b2230;border-radius:20px;padding:30px 24px;font-family:var(--serif);font-size:1.08rem;line-height:1.75;box-shadow:0 30px 60px -30px #000;margin-bottom:34px;position:relative}
-.letter::before{content:"“";position:absolute;top:-10px;left:16px;font-size:5rem;line-height:1;color:var(--accent)}
+.letter{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cpath transform='translate(42 44) scale(1.5)' fill='%23ffffff' fill-opacity='.035' d='M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z'/%3E%3C/svg%3E") center 20px/120px 120px repeat,linear-gradient(180deg,#252427,#1f1e21);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:44px 26px 34px;font-family:var(--serif);font-size:1.08rem;line-height:1.8;box-shadow:0 30px 60px -30px #000;margin:34px 0;position:relative}
+.letter .badge{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#1f1e21;border:1px solid rgba(255,255,255,.14)}
+.letter .badge svg{width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:2;animation:beat 1.6s ease-in-out infinite}
+.letter .corner{position:absolute;top:18px;right:20px;width:26px;height:26px;fill:none;stroke:rgba(255,111,125,.35);stroke-width:1.6}
+.letter::before{content:"“";position:absolute;top:6px;left:18px;font-size:4.5rem;line-height:1;color:rgba(255,111,125,.45)}
 .letter p{margin:0 0 1em;white-space:pre-line}
-.letter .sign{text-align:right;font-style:italic;margin:1.2em 0 0}
+.letter .sign{text-align:right;font-style:italic;margin:1.2em 0 0;color:rgba(255,255,255,.85)}
+.letter .sign b{color:var(--accent);font-style:normal}
 .lp-share{text-align:center;margin-bottom:34px}
 .lp-share .share{margin-top:12px}
 .lp-foot{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0}
@@ -1256,7 +1260,7 @@ async function viewLove(p){
       </section>
       ${galleryHtml ? `<section class="lp-sec" style="padding-top:0"><h2 class="rv">${T("photos")}</h2><div class="gallery" data-stagger>${galleryHtml}</div></section>` : ""}
       ${mems.length ? `<section class="mems lp-sec"><h2 class="rv">${T("memories")}</h2><div class="mem-grid" data-stagger>${mems.map((m, i) => `<figure class="polaroid rv" data-rv="drop" style="--r:${[-2.5, 2, -1.5, 3][i % 4]}deg"><button type="button" data-mem="${i}" aria-label="Recuerdo ${i + 1}"><img src="${m.img}" alt="" loading="lazy"></button>${m.text ? `<figcaption>${esc(m.text)}</figcaption>` : ""}</figure>`).join("")}</div></section>` : ""}
-      ${p.letter ? `<section class="lp-sec"><span class="lp-heart" aria-hidden="true">♥</span><br><span class="eyebrow rv">${T("letterEy")}</span><article class="letter rv" data-rv="up40" style="text-align:left;margin-top:14px">${esc(p.letter).split(/\n{2,}/).map((t, i) => `<p style="--i:${i}">${t}</p>`).join("")}<p class="sign" style="--i:9">${T("love")}<br><b>${esc(p.sign || p.a)}</b></p></article></section>` : ""}
+      ${p.letter ? `<section class="lp-sec"><span class="eyebrow rv">${T("letterEy")}</span><article class="letter rv" data-rv="up40" style="text-align:left"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></span><svg class="corner" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.5h2c.7-1.4 2.2-2.5 4.3-2.5 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>${esc(p.letter).split(/\n{2,}/).map((t, i) => `<p style="--i:${i}">${t}</p>`).join("")}<p class="sign" style="--i:${esc(p.letter).split(/\n{2,}/).length}">${T("love")}<br><b>${esc(p.sign || p.a)}</b></p></article></section>` : ""}
       <section class="lp-share lp-sec">
         <h2 class="rv">${T("share")}</h2>
         <button class="btn sm rv" data-rv="pop" id="lpQr">${T("qr")}</button>
