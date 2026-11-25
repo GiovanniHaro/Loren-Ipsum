@@ -464,6 +464,52 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
   .hero .badges{justify-content:center}
 }
 @media (max-width:360px){.hero .ctas{flex-wrap:wrap}}
+
+/* Secciones del inicio: incluye, pasos, todo incluido, historias, confianza, FAQ */
+.x-sec{padding:84px 0}
+.x-h{font-size:clamp(1.65rem,4.2vw,2rem);text-align:center;letter-spacing:-.02em;margin:0 0 38px}
+.x-h.big{font-size:clamp(2rem,5.6vw,3rem);margin-bottom:.35em}
+.x-head{max-width:680px;margin:0 auto 44px;text-align:center}
+.x-head p{color:var(--muted);font-size:1.08rem;margin:0}
+.x-eye{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.7em}
+.x-card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.x-card:hover{border-color:rgba(255,111,125,.35);box-shadow:0 18px 40px -24px rgba(255,111,125,.45)}
+.x-ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(255,111,125,.14)}
+.x-ic svg{width:24px;height:24px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.x-card h3{font:700 1.08rem/1.3 var(--sans);margin:18px 0 6px}
+.x-card p{color:var(--muted);font-size:.93rem;margin:0}
+.x-inc-grid{max-width:760px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.x-line{display:flex;align-items:center;gap:.6em;min-height:84px;padding:20px 22px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);font-size:1.05rem;line-height:1.45}
+.x-line .e,.x-pill .e{flex:none;font-size:1.25em}
+.x-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.x-step .x-top{display:flex;justify-content:space-between;align-items:flex-start}
+.x-step .x-top b{font:800 3.2rem/1 var(--sans);color:rgba(255,111,125,.14);letter-spacing:-.03em}
+.x-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.x-feat .x-ic{width:42px;height:42px;border-radius:12px}
+.x-feat .x-ic svg{width:21px;height:21px}
+.x-feat h3{margin-top:16px}
+.x-testis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.x-testi{margin:0;display:flex;flex-direction:column}
+.x-testi .stars{color:#ffc94d;letter-spacing:.15em}
+.x-testi q{display:block;flex:1;font-style:italic;color:#f3e9ee;margin:14px 0 20px;line-height:1.55}
+.x-testi figcaption{display:flex;align-items:center;gap:12px}
+.x-testi .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,111,125,.18);color:var(--accent)}
+.x-testi figcaption b{display:block;font-size:.92rem}
+.x-testi figcaption small{color:var(--muted);font-size:.8rem}
+.x-trust{padding-top:20px}
+.x-trust-grid{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.x-pill{display:flex;align-items:center;gap:.6em;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);font-size:.98rem}
+.x-faqsec{padding-top:40px}
+.x-faq{max-width:620px;margin:0 auto;display:grid;gap:14px}
+.x-faq details{border-radius:22px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);transition:border-color .25s}
+.x-faq details[open]{border-color:rgba(255,111,125,.35)}
+.x-faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:24px 28px;font-weight:600;font-size:1.12rem;min-height:44px}
+.x-faq summary::-webkit-details-marker{display:none}
+.x-faq summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg);transition:transform .3s}
+.x-faq details[open] summary::after{transform:translateY(2px) rotate(225deg)}
+.x-faq details p{margin:0;padding:0 28px 24px;color:var(--muted)}
+@media (max-width:860px){.x-feats,.x-testis{grid-template-columns:1fr 1fr}.x-steps{grid-template-columns:1fr}}
+@media (max-width:600px){.x-sec{padding:64px 0}.x-inc-grid,.x-trust-grid,.x-feats,.x-testis{grid-template-columns:1fr}.x-line{min-height:0}.x-faq summary{padding:20px 22px;font-size:1.04rem}.x-faq details p{padding:0 22px 20px}}
 </style>
 </head>
 <body>
@@ -513,75 +559,83 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
   </section>
 
   <!-- QUÉ INCLUYE -->
-  <section class="alt">
+  <section class="x-sec x-inc">
     <div class="wrap">
-      <div class="head rv"><span class="eyebrow">Qué incluye</span><h2>Un regalo que se siente, no solo se ve</h2></div>
-      <div class="grid g4">
-        <div class="card rv"><div class="ico">⏳</div><h3>Contador en vivo</h3><p>Años, meses, días, horas y minutos juntos, actualizándose en tiempo real.</p></div>
-        <div class="card rv"><div class="ico">📸</div><h3>Sus fotos</h3><p>Una galería con sus momentos favoritos.</p></div>
-        <div class="card rv"><div class="ico">💌</div><h3>Una carta</h3><p>Escríbela tú o usa una sugerencia y personalízala.</p></div>
-        <div class="card rv"><div class="ico">🎶</div><h3>Su canción</h3><p>La canción que los representa, lista para reproducir.</p></div>
+      <h2 class="x-h rv">¿Qué incluye tu regalo?</h2>
+      <div class="x-inc-grid" data-stagger>
+        <div class="x-line rv"><span class="e">💞</span>Cuenta en vivo el tiempo que llevan juntos</div>
+        <div class="x-line rv"><span class="e">📸</span>Sus fotos favoritas en una galería</div>
+        <div class="x-line rv"><span class="e">💌</span>Una carta de amor escrita por ti</div>
+        <div class="x-line rv"><span class="e">🎶</span>La canción que cuenta su historia</div>
       </div>
     </div>
   </section>
 
   <!-- CÓMO FUNCIONA -->
-  <section>
+  <section class="x-sec">
     <div class="wrap">
-      <div class="head rv"><span class="eyebrow">Así de simple</span><h2>¿Cómo funciona?</h2><p>Tres pasos y tu sorpresa está lista.</p></div>
-      <div class="grid g3">
-        <div class="card step rv"><div class="num">01</div><h3>Personaliza</h3><p>Nombres, fecha, fotos, canción y carta. Ves cómo queda antes de pagar.</p></div>
-        <div class="card step rv"><div class="num">02</div><h3>Recibe tu QR</h3><p>Al confirmar el pago se activa tu página y obtienes un QR y una tarjeta para imprimir o enviar.</p></div>
-        <div class="card step rv"><div class="num">03</div><h3>Sorprende</h3><p>Tu pareja escanea el QR y descubre su historia, su canción y tu carta.</p></div>
+      <div class="x-head rv"><span class="x-eye">Simple y rápido</span><h2 class="x-h big">¿Cómo funciona?</h2><p>Tres pasos y tu sorpresa está lista.</p></div>
+      <div class="x-steps" data-stagger>
+        <div class="x-card x-step rv"><div class="x-top"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18h2"/></svg></span><b>01</b></div><h3>Personaliza su página</h3><p>Nombres, fecha, fotos, canción y carta. Ves cómo queda antes de pagar.</p></div>
+        <div class="x-card x-step rv"><div class="x-top"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h.01M17.5 21H21v-3.5"/></svg></span><b>02</b></div><h3>Recibe tu QR</h3><p>Al confirmar el pago se activa tu página y obtienes un QR y una tarjeta para regalar.</p></div>
+        <div class="x-card x-step rv"><div class="x-top"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 3.5 8 4.5 9 8 12 8zM12 8s1.5-4.5 4-3.5S15 8 12 8z"/></svg></span><b>03</b></div><h3>Sorprende</h3><p>Tu pareja escanea el QR y descubre su historia, su canción y tu carta.</p></div>
       </div>
-      <p class="center" style="margin-top:28px"><a href="#/crear" class="btn" data-track="cta_pasos">Crear mi regalo ahora</a></p>
+      <p class="center" style="margin-top:34px"><a href="#/crear" class="btn" data-track="cta_pasos">Crear mi regalo ahora 💖</a></p>
     </div>
   </section>
 
   <!-- TODO INCLUIDO -->
-  <section class="alt">
+  <section class="x-sec">
     <div class="wrap">
-      <div class="head rv"><span class="eyebrow">Todo incluido</span><h2>Un regalo completo</h2><p>Cada detalle pensado para que sea un momento especial.</p></div>
-      <div class="grid g3">
-        <div class="card rv"><div class="ico">🔳</div><h3>QR personalizado</h3><p>Un código único que abre su página.</p></div>
-        <div class="card rv"><div class="ico">🖨️</div><h3>Tarjeta para imprimir</h3><p>Descárgala y regálala en físico o por WhatsApp.</p></div>
-        <div class="card rv"><div class="ico">🔐</div><h3>Página privada</h3><p>Solo la ve quien tiene el enlace o el QR.</p></div>
-        <div class="card rv"><div class="ico">🌎</div><h3>4 idiomas</h3><p>Español, inglés, portugués e italiano.</p></div>
-        <div class="card rv"><div class="ico">💬</div><h3>Fácil de compartir</h3><p>Por WhatsApp, redes o copiando el enlace.</p></div>
-        <div class="card rv"><div class="ico">⚡</div><h3>Acceso inmediato</h3><p>Se activa apenas confirmamos tu pago.</p></div>
+      <div class="x-head rv"><span class="x-eye">Todo incluido</span><h2 class="x-h big">Un regalo completo</h2><p>Cada detalle pensado para que sea un momento especial.</p></div>
+      <div class="x-feats" data-stagger>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h.01M17.5 21H21v-3.5"/></svg></span><h3>QR personalizado</h3><p>Un código único que abre su página.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></span><h3>Tarjeta para imprimir</h3><p>Descárgala y regálala en físico o por WhatsApp.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></span><h3>Fotos y recuerdos</h3><p>Una galería con sus momentos favoritos.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Su canción</h3><p>La canción que los representa, lista para sonar.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h3>Carta de amor</h3><p>Escríbela tú o parte de una sugerencia.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Contador en vivo</h3><p>Años, meses, días, horas y minutos juntos.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Página privada</h3><p>Solo la ve quien tiene el enlace o el QR.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></span><h3>Fácil de compartir</h3><p>Por WhatsApp, redes o copiando el enlace.</p></div>
+        <div class="x-card x-feat rv"><span class="x-ic"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Acceso inmediato</h3><p>Se activa apenas confirmamos tu pago.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PRUEBA SOCIAL: reemplazar por testimonios REALES de clientes (con su permiso) -->
-  <section>
+  <!-- PRUEBA SOCIAL: reemplazar por testimonios REALES de clientes (con su permiso). No inventar. -->
+  <section class="x-sec">
     <div class="wrap">
-      <div class="head rv"><span class="eyebrow">Historias reales</span><h2>Lo que dicen quienes ya sorprendieron</h2></div>
-      <div class="grid g3">
-        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 1]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
-        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 2]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
-        <figure class="card testi rv" style="margin:0"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 3]</q><figcaption><b>[Nombre]</b> · <span class="muted">[Ciudad]</span></figcaption></figure>
+      <div class="x-head rv"><span class="x-eye">Historias reales</span><h2 class="x-h big">Parejas que ya se sorprendieron ❤️</h2><p>[EDITAR: una frase real sobre tus clientes, sin cifras inventadas]</p></div>
+      <div class="x-testis" data-stagger>
+        <figure class="x-card x-testi rv"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 1]</q><figcaption><span class="av">♥</span><span><b>[Nombre]</b><small>[Ciudad]</small></span></figcaption></figure>
+        <figure class="x-card x-testi rv"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 2]</q><figcaption><span class="av">♥</span><span><b>[Nombre]</b><small>[Ciudad]</small></span></figcaption></figure>
+        <figure class="x-card x-testi rv"><div class="stars">★★★★★</div><q>[Testimonio real de cliente 3]</q><figcaption><span class="av">♥</span><span><b>[Nombre]</b><small>[Ciudad]</small></span></figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- CONFIANZA + FAQ -->
-  <section class="alt">
+  <!-- SEGURIDAD -->
+  <section class="x-sec x-trust">
     <div class="wrap">
-      <div class="head rv"><span class="eyebrow">Confianza</span><h2>Compra tranquilo</h2></div>
-      <div class="grid g4" style="margin-bottom:56px">
-        <div class="card rv"><div class="ico">🔒</div><h3>Pago seguro</h3><p>Yape, Plin o tarjeta.</p></div>
-        <div class="card rv"><div class="ico">🚫</div><h3>Sin suscripción</h3><p>Pagas una sola vez.</p></div>
-        <div class="card rv"><div class="ico">⚡</div><h3>En 2 minutos</h3><p>Desde tu celular.</p></div>
-        <div class="card rv"><div class="ico">💬</div><h3>Soporte</h3><p>Te ayudamos por WhatsApp.</p></div>
+      <h2 class="x-h rv">Seguridad y confianza</h2>
+      <div class="x-trust-grid" data-stagger>
+        <div class="x-pill rv"><span class="e">🔒</span>Pago seguro con Yape, Plin o tarjeta</div>
+        <div class="x-pill rv"><span class="e">🚫</span>Sin suscripción ni cargos ocultos</div>
+        <div class="x-pill rv"><span class="e">⚡</span>Lista en menos de 2 minutos</div>
+        <div class="x-pill rv"><span class="e">💳</span>Pago único de {{PRICE}}</div>
       </div>
-      <div class="head"><h2>Preguntas frecuentes</h2></div>
-      <div class="faq">
-        <details><summary>¿Cómo pago?</summary><p>Con Yape o Plin (envías tu comprobante por WhatsApp y activamos tu página) o con tarjeta de débito o crédito.</p></details>
-        <details><summary>¿Puedo ver cómo queda antes de pagar?</summary><p>Sí. Armas toda la página y la ves en vista previa. Solo pagas cuando te guste.</p></details>
-        <details><summary>¿Cuánto tiempo dura la página?</summary><p>[EDITAR: indica el plazo real de vigencia que ofrecerás, por ejemplo “para siempre” o “2 años”.]</p></details>
-        <details><summary>¿Puedo cambiar algo después?</summary><p>Sí, puedes editar textos, fotos y canción desde “Mis páginas”.</p></details>
-        <details><summary>¿Quién puede ver la página?</summary><p>Solo quien tenga el enlace o escanee el QR. No aparece en buscadores.</p></details>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="x-sec x-faqsec">
+    <div class="wrap">
+      <h2 class="x-h rv">Preguntas frecuentes</h2>
+      <div class="x-faq" data-stagger>
+        <details class="rv"><summary>¿Es seguro el pago?</summary><p>Sí. Pagas con Yape o Plin directo a nuestra cuenta (nos envías el comprobante por WhatsApp y activamos tu página) o con tarjeta a través de una pasarela de pago. Nunca te pedimos claves.</p></details>
+        <details class="rv"><summary>¿Por qué cuesta solo {{PRICE}}?</summary><p>Porque queremos que regalar algo bonito sea fácil para todos. Tú armas la página en minutos y la ves en vista previa antes de pagar.</p></details>
+        <details class="rv"><summary>¿Puedo pagar con Yape o Plin?</summary><p>Sí. También aceptamos tarjetas de débito o crédito.</p></details>
+        <details class="rv"><summary>¿Cuánto dura mi página?</summary><p>[EDITAR: indica el plazo real de vigencia que ofrecerás, por ejemplo “para siempre” o “2 años”.]</p></details>
       </div>
     </div>
   </section>
