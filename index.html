@@ -7,6 +7,8 @@
 <title>Loren Ipsum · Regala una página con su historia de amor</title>
 <meta name="description" content="Crea en minutos una página romántica con sus fotos, su canción, una carta y un contador en vivo del tiempo que llevan juntos. Recibe un QR y una tarjeta para regalar.">
 <meta name="theme-color" content="#160c14">
+<meta name="color-scheme" content="dark">
+<meta name="darkreader-lock">
 <meta property="og:title" content="Loren Ipsum · Regala su historia de amor">
 <meta property="og:description" content="Fotos, canción, carta y contador del tiempo juntos en una página privada con QR.">
 <meta property="og:type" content="website">
@@ -447,6 +449,21 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
 .toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:#fff;color:#2a0a12;font-weight:700;padding:.7em 1.2em;border-radius:999px;opacity:0;transition:.25s;z-index:99;pointer-events:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+/* Hero: colores del título y distribución centrada en celular */
+:root{color-scheme:dark}
+.hero-title .c1{color:var(--accent)}
+.hero-title .c2{color:var(--accent-2)}
+@media (max-width:640px){
+  .hero .hero-grid>div:first-child{text-align:center}
+  .hero .hero-title{font-size:clamp(2.9rem,14vw,4rem);line-height:1.02;margin-top:.6em!important;letter-spacing:-.01em}
+  .hero p.lead{margin-left:auto;margin-right:auto;max-width:24em;font-size:1.05rem;color:#f3e9ee}
+  .hero .ctas{justify-content:center;flex-wrap:nowrap;gap:.6rem}
+  .hero .ctas .btn{padding-left:1.1em;padding-right:1.1em;white-space:nowrap}
+  .hero .trust{font-size:clamp(.66rem,3.05vw,.8rem);white-space:nowrap}
+  .hero .badges{justify-content:center}
+}
+@media (max-width:360px){.hero .ctas{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -471,8 +488,8 @@ dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
     <div class="wrap hero-grid">
       <div>
         <span class="pill">💝 Un regalo digital listo en minutos</span>
-        <h1 style="margin-top:.5em">Regala una página con <span class="grad">toda su historia de amor</span></h1>
-        <p class="lead">Sube sus fotos, escribe sus nombres y la fecha en que empezó todo. Creamos una página privada con su canción, una carta y un contador que muestra en vivo cuánto tiempo llevan juntos.</p>
+        <h1 class="hero-title" style="margin-top:.5em">Regala una <span class="c1">página con toda su</span> <span class="c2">historia de amor</span></h1>
+        <p class="lead">Creamos su propia página romántica con un contador en tiempo real de su historia.</p>
         <div class="ctas">
           <a href="#/crear" class="btn" data-track="cta_hero">Crear mi regalo · {{PRICE}}</a>
           <a href="#/demo" class="btn ghost">Ver ejemplo</a>
