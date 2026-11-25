@@ -308,7 +308,7 @@ body.lp{background:#12090f}
 .since b{color:var(--text);display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 34px}
 .gallery button{padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;aspect-ratio:1;background:var(--card)}
-.gallery button:first-child{grid-column:span 2;aspect-ratio:4/3}
+.gallery button:first-child:nth-last-child(odd){grid-column:span 2;aspect-ratio:4/3}
 .gallery img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transition:transform .4s}
 .gallery button:hover img{transform:scale(1.04)}
 .demo-photo{width:100%;height:100%;display:grid;place-items:center;font-size:2.4rem;color:rgba(255,255,255,.6)}
@@ -332,6 +332,47 @@ dialog.lightbox{border:0;padding:0;background:transparent;max-width:94vw;max-hei
 dialog.lightbox::backdrop{background:rgba(0,0,0,.88)}
 dialog.lightbox img{max-width:94vw;max-height:84vh;border-radius:14px;margin:auto}
 dialog.lightbox button{display:block;margin:12px auto 0;min-height:44px}
+
+
+/* ===== Página de la pareja: portada a pantalla completa + reproductor flotante ===== */
+.lp-top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px max(14px,env(safe-area-inset-left));min-height:52px;font-size:.88rem;color:#fff;background:rgba(18,9,15,.55);backdrop-filter:blur(12px)}
+.lp-top.demo{background:linear-gradient(90deg,var(--accent),#d9467a);color:#fff}
+.lp-top .tag-demo{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lp-top .right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.lp-top .langs{display:flex;gap:2px;background:rgba(0,0,0,.25);border-radius:999px;padding:3px}
+.lp-top .langs button{min-width:36px;min-height:32px;border:0;border-radius:999px;background:transparent;color:rgba(255,255,255,.85);font:700 .75rem var(--sans);cursor:pointer}
+.lp-top .langs button.on{background:#fff;color:#2a0a12}
+.lp-top .btn.sm{min-height:36px;padding:.35em .95em;font-size:.82rem;background:rgba(0,0,0,.28);color:#fff;box-shadow:none}
+@media (max-width:480px){.lp-top .btn.sm{display:none}.player-dock .music .t small.hint{display:none}.lp-top{font-size:.8rem}}
+.lp-hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px 150px;overflow:hidden;isolation:isolate}
+.lp-hero .bg{position:absolute;inset:0;z-index:-2;background:#2b1522 45% 30%/cover no-repeat;transform:scale(1.04);animation:kb 18s ease-in-out infinite alternate}
+.lp-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,9,15,.45) 0%,rgba(18,9,15,.35) 45%,rgba(18,9,15,.92) 92%,#12090f 100%)}
+@keyframes kb{to{transform:scale(1.12)}}
+.lp-hero h1{font-size:clamp(3rem,11vw,6.2rem);line-height:1;margin:0;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.45);display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:0 .3em}
+.lp-hero h1 .amp{font-style:italic;font-weight:500;color:var(--accent)}
+.lp-hero .date-pill{margin-top:22px;display:inline-flex;align-items:center;gap:.5em;padding:.7em 1.3em;border-radius:999px;background:rgba(18,9,15,.6);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:1rem}
+.lp-hero .date-pill b{font-family:var(--serif);font-weight:700}
+.lp-hero .scroll{position:absolute;bottom:120px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:.8rem;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px}
+.lp-hero .scroll i{font-style:normal;font-size:1.2rem;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+.lp-sec{padding:56px 0;text-align:center}
+.lp-sec .eyebrow{color:var(--accent)}
+.lp-sec h2{font-size:clamp(1.7rem,6vw,2.4rem)}
+/* reproductor flotante */
+.player-dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;justify-content:center;padding:10px 10px calc(10px + env(safe-area-inset-bottom));pointer-events:none}
+.player-dock .music{pointer-events:auto;width:min(560px,100%);margin:0;flex-wrap:wrap;background:rgba(32,18,28,.92);backdrop-filter:blur(14px);box-shadow:0 20px 50px -20px #000;border-radius:22px;padding:12px;transition:transform .3s,opacity .3s}
+.player-dock .music .thumb{flex:none;width:58px;height:58px;border-radius:14px;object-fit:cover;background:#000}
+.player-dock .music.playing .thumb{animation:none}
+.player-dock .music .t small.hint{display:block;font-size:.78rem;line-height:1.3;margin-top:2px}
+.player-dock .music .play{width:auto;min-width:50px;padding:0 1.1em;border-radius:999px;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.4em;height:46px}
+.player-dock .x{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:1.1rem;cursor:pointer}
+.player-dock .player-slot{flex-basis:100%;margin:10px 0 0}
+.player-dock .yt-frame.show{max-height:260px}
+.player-dock .music.min{transform:translateY(140%);opacity:0;pointer-events:none}
+.mini-music{pointer-events:auto;position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:61;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#2a0a12;font-size:1.3rem;box-shadow:0 12px 30px -10px #000}
+.mini-music[hidden]{display:none}
+.lp-wrap{max-width:680px;margin:0 auto;padding:0 18px 140px;position:relative;z-index:1}
+.lp-wrap .gallery{margin-top:10px}
 
 /* Reveal sutil */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
@@ -657,10 +698,10 @@ function fmtDate(iso, lang){ if (!iso) return ""; const loc = { es: "es-PE", en:
    TEXTOS DE LA PÁGINA DE LA PAREJA (4 idiomas)
    =================================================================== */
 const I18N = {
-  es: { pause: "Pausar", memories: "Recuerdos especiales", demo: "Esto es un ejemplo", preview: "Vista previa · aún no está activa", create: "Crear la mía", hint: "Toca el botón para escuchar la canción elegida para ti", together: "Juntos desde", time: "Nuestro tiempo juntos", sub: "Cada segundo cuenta cuando estás enamorado", y: "años", mo: "meses", d: "días", h: "horas", mi: "min", s: "seg", share: "Comparte el amor", qr: "Descargar QR", copy: "Copiar enlace", copied: "Enlace copiado", love: "Con todo mi amor,", made: "Hecho con", liked: "¿Te gustó? Crea la tuya", play: "Reproducir", close: "Cerrar", photos: "Nuestros momentos", nolink: "Canción dedicada" },
-  en: { pause: "Pause", memories: "Special memories", demo: "This is an example", preview: "Preview · not active yet", create: "Create mine", hint: "Tap the button to play the song chosen for you", together: "Together since", time: "Our time together", sub: "Every second counts when you're in love", y: "years", mo: "months", d: "days", h: "hours", mi: "min", s: "sec", share: "Share the love", qr: "Download QR", copy: "Copy link", copied: "Link copied", love: "With all my love,", made: "Made with", liked: "Liked it? Create yours", play: "Play", close: "Close", photos: "Our moments", nolink: "Dedicated song" },
-  pt: { pause: "Pausar", memories: "Lembranças especiais", demo: "Isto é um exemplo", preview: "Prévia · ainda não ativa", create: "Criar a minha", hint: "Toque no botão para ouvir a música escolhida para você", together: "Juntos desde", time: "Nosso tempo juntos", sub: "Cada segundo conta quando se está apaixonado", y: "anos", mo: "meses", d: "dias", h: "horas", mi: "min", s: "seg", share: "Compartilhe o amor", qr: "Baixar QR", copy: "Copiar link", copied: "Link copiado", love: "Com todo o meu amor,", made: "Feito com", liked: "Gostou? Crie a sua", play: "Tocar", close: "Fechar", photos: "Nossos momentos", nolink: "Música dedicada" },
-  it: { pause: "Pausa", memories: "Ricordi speciali", demo: "Questo è un esempio", preview: "Anteprima · non ancora attiva", create: "Crea la mia", hint: "Tocca il pulsante per ascoltare la canzone scelta per te", together: "Insieme dal", time: "Il nostro tempo insieme", sub: "Ogni secondo conta quando sei innamorato", y: "anni", mo: "mesi", d: "giorni", h: "ore", mi: "min", s: "sec", share: "Condividi l'amore", qr: "Scarica QR", copy: "Copia link", copied: "Link copiato", love: "Con tutto il mio amore,", made: "Fatto con", liked: "Ti è piaciuto? Crea la tua", play: "Riproduci", close: "Chiudi", photos: "I nostri momenti", nolink: "Canzone dedicata" }
+  es: { more: "Descubre más", loveTime: "Tiempo de amor", letterEy: "Carta de amor", pause: "Pausar", memories: "Recuerdos especiales", demo: "Esto es un ejemplo", preview: "Vista previa · aún no está activa", create: "Crear la mía", hint: "Toca el botón para escuchar la canción elegida para ti", together: "Juntos desde", time: "Nuestro tiempo juntos", sub: "Cada segundo cuenta cuando estás enamorado", y: "años", mo: "meses", d: "días", h: "horas", mi: "min", s: "seg", share: "Comparte el amor", qr: "Descargar QR", copy: "Copiar enlace", copied: "Enlace copiado", love: "Con todo mi amor,", made: "Hecho con", liked: "¿Te gustó? Crea la tuya", play: "Reproducir", close: "Cerrar", photos: "Nuestros momentos", nolink: "Canción dedicada" },
+  en: { more: "Discover more", loveTime: "Love time", letterEy: "Love letter", pause: "Pause", memories: "Special memories", demo: "This is an example", preview: "Preview · not active yet", create: "Create mine", hint: "Tap the button to play the song chosen for you", together: "Together since", time: "Our time together", sub: "Every second counts when you're in love", y: "years", mo: "months", d: "days", h: "hours", mi: "min", s: "sec", share: "Share the love", qr: "Download QR", copy: "Copy link", copied: "Link copied", love: "With all my love,", made: "Made with", liked: "Liked it? Create yours", play: "Play", close: "Close", photos: "Our moments", nolink: "Dedicated song" },
+  pt: { more: "Descubra mais", loveTime: "Tempo de amor", letterEy: "Carta de amor", pause: "Pausar", memories: "Lembranças especiais", demo: "Isto é um exemplo", preview: "Prévia · ainda não ativa", create: "Criar a minha", hint: "Toque no botão para ouvir a música escolhida para você", together: "Juntos desde", time: "Nosso tempo juntos", sub: "Cada segundo conta quando se está apaixonado", y: "anos", mo: "meses", d: "dias", h: "horas", mi: "min", s: "seg", share: "Compartilhe o amor", qr: "Baixar QR", copy: "Copiar link", copied: "Link copiado", love: "Com todo o meu amor,", made: "Feito com", liked: "Gostou? Crie a sua", play: "Tocar", close: "Fechar", photos: "Nossos momentos", nolink: "Música dedicada" },
+  it: { more: "Scopri di più", loveTime: "Tempo d’amore", letterEy: "Lettera d’amore", pause: "Pausa", memories: "Ricordi speciali", demo: "Questo è un esempio", preview: "Anteprima · non ancora attiva", create: "Crea la mia", hint: "Tocca il pulsante per ascoltare la canzone scelta per te", together: "Insieme dal", time: "Il nostro tempo insieme", sub: "Ogni secondo conta quando sei innamorato", y: "anni", mo: "mesi", d: "giorni", h: "ore", mi: "min", s: "sec", share: "Condividi l'amore", qr: "Scarica QR", copy: "Copia link", copied: "Link copiato", love: "Con tutto il mio amore,", made: "Fatto con", liked: "Ti è piaciuto? Crea la tua", play: "Riproduci", close: "Chiudi", photos: "I nostri momenti", nolink: "Canzone dedicata" }
 };
 
 /* ===================================================================
@@ -1139,34 +1180,49 @@ async function viewLove(p){
   const demoFill = p.demo ? ["#ff8a7a,#c74b7a", "#ffb36b,#ff6f7d", "#8a4fa0,#3b1d48"].slice((p.photos || []).length).map(g => `<button type="button" tabindex="-1" aria-hidden="true"><div class="demo-photo" style="background:linear-gradient(135deg,${g})">♥</div></button>`).join("") : "";
   const photos = (p.photos || []).map((src, i) => `<button type="button" data-ph="${i}" aria-label="Foto ${i + 1}"><img src="${src}" alt="" loading="lazy"></button>`).join("") + demoFill;
   const mems = (p.memories || []).filter(m => m.img);
+  const cover = (p.photos || [])[0];
+  const rest = (p.photos || []).slice(1);
+  const galleryHtml = rest.map((src, i) => `<button type="button" data-ph="${i + 1}" aria-label="Foto ${i + 2}"><img src="${src}" alt="" loading="lazy"></button>`).join("") + (p.demo ? demoFill : "");
   setView(`
-    ${p.demo ? `<div class="lp-banner">${T("demo")} · <a href="#/crear" style="color:inherit">${T("create")} →</a></div>` : !p.paid ? `<div class="lp-banner">${T("preview")}</div>` : ""}
-    <div class="lp-bar">
-      <a href="${p.demo ? "#/" : "#"}" class="logo" style="font-size:1rem"><i>♥</i> <span class="sr">${esc(CONFIG.brand)}</span></a>
-      <div class="langs" role="group" aria-label="Idioma">${["es","en","pt","it"].map(l => `<button data-lang="${l}" aria-pressed="${l === lang}">${l.toUpperCase()}</button>`).join("")}</div>
-      ${p.demo ? `<a class="btn sm" href="#/crear">${T("create")}</a>` : "<span></span>"}
-    </div>
+    <header class="lp-top ${p.demo ? "demo" : ""}">
+      ${p.demo ? `<span class="tag-demo">✨ <span class="long">${T("demo")}</span></span>` : !p.paid ? `<span class="tag-demo">${T("preview")}</span>` : `<span class="logo" style="font-size:1rem"><i>♥</i></span>`}
+      <div class="right">
+        <div class="langs" role="group" aria-label="Idioma">${["es","en","pt","it"].map(l => `<button data-lang="${l}" aria-pressed="${l === lang}">${l.toUpperCase()}</button>`).join("")}</div>
+        ${p.demo ? `<a class="btn sm" href="#/crear">${T("create")} ♥</a>` : ""}
+      </div>
+    </header>
+    <section class="lp-hero">
+      <div class="bg" ${cover ? `style="background-image:url('${cover}')"` : ""}></div>
+      <h1><span>${esc(p.a)}</span><span class="amp">&amp;</span><span>${esc(p.b)}</span></h1>
+      <div class="date-pill">📅 ${T("together")} <b data-date></b></div>
+      <a class="scroll" href="#lp-time" onclick="event.preventDefault();document.getElementById('lp-time').scrollIntoView({behavior:'smooth'})">${T("more")}<i>⌄</i></a>
+    </section>
     <div class="hearts" aria-hidden="true">${Array.from({ length: 12 }, (_, i) => `<span style="left:${(i * 37) % 100}%;font-size:${10 + (i * 7) % 18}px;animation-duration:${9 + (i * 3) % 9}s;animation-delay:${(i * 1.7) % 10}s">♥</span>`).join("")}</div>
-    <main class="lp-main">
-      ${hasSong ? `<div class="music" id="mus"><div class="disc"></div><div class="t"><b>${esc(p.song.title) || T("nolink")}</b><small>${esc(p.song.artist || "")}</small></div>${emb ? `<button class="play" id="play" aria-pressed="false" aria-label="${I18N[lang].play}">▶</button>` : ""}</div>
-        ${emb ? `<div class="player-slot">${emb.type === "yt" ? `<div class="yt-frame" id="ytFrame"><div id="ytPlayer"></div></div>` : `<iframe src="${emb.src}" height="152" allow="autoplay; clipboard-write; encrypted-media" loading="lazy" title="${esc(p.song.title)}"></iframe>`}</div>${emb.type === "yt" ? `<p class="music-hint" id="mh">${T("hint")}</p>` : ""}` : ""}` : ""}
-      <div class="names"><h1>${esc(p.a)}<span class="amp">&amp;</span>${esc(p.b)}</h1></div>
-      <p class="since">${T("together")}<b data-date></b></p>
-      ${photos ? `<div class="gallery">${photos}</div>` : ""}
-      <div class="counter-box">
+    <main class="lp-wrap">
+      <section class="lp-sec" id="lp-time">
+        <span class="eyebrow">${T("loveTime")}</span>
         <h2>${T("time")}</h2><p class="muted" style="margin:0">${T("sub")}</p>
         <div class="counter" id="ctr">${["y","mo","d","h","mi","s"].map(k => `<div><b data-k="${k}">00</b>${T(k)}</div>`).join("")}</div>
-      </div>
-      ${mems.length ? `<section class="mems"><h2>${T("memories")}</h2><div class="mem-grid">${mems.map((m, i) => `<figure class="polaroid" style="--r:${[-2.5, 2, -1.5, 3][i % 4]}deg"><button type="button" data-mem="${i}" aria-label="Recuerdo ${i + 1}"><img src="${m.img}" alt="" loading="lazy"></button>${m.text ? `<figcaption>${esc(m.text)}</figcaption>` : ""}</figure>`).join("")}</div></section>` : ""}
-      ${p.letter ? `<article class="letter"><p>${esc(p.letter)}</p><p class="sign">${T("love")}<br><b>${esc(p.sign || p.a)}</b></p></article>` : ""}
-      <div class="lp-share">
-        <h2 style="font-size:1.4rem">${T("share")}</h2>
+      </section>
+      ${galleryHtml ? `<section class="lp-sec" style="padding-top:0"><h2>${T("photos")}</h2><div class="gallery">${galleryHtml}</div></section>` : ""}
+      ${mems.length ? `<section class="mems lp-sec"><h2>${T("memories")}</h2><div class="mem-grid">${mems.map((m, i) => `<figure class="polaroid" style="--r:${[-2.5, 2, -1.5, 3][i % 4]}deg"><button type="button" data-mem="${i}" aria-label="Recuerdo ${i + 1}"><img src="${m.img}" alt="" loading="lazy"></button>${m.text ? `<figcaption>${esc(m.text)}</figcaption>` : ""}</figure>`).join("")}</div></section>` : ""}
+      ${p.letter ? `<section class="lp-sec"><span class="eyebrow">${T("letterEy")}</span><article class="letter" style="text-align:left;margin-top:14px"><p>${esc(p.letter)}</p><p class="sign">${T("love")}<br><b>${esc(p.sign || p.a)}</b></p></article></section>` : ""}
+      <section class="lp-share lp-sec">
+        <h2>${T("share")}</h2>
         <button class="btn sm" id="lpQr">${T("qr")}</button>
         <div class="share">${shareButtons(url, p, I18N[lang])}</div>
-      </div>
+      </section>
       <div class="card center"><p style="margin-bottom:.8em"><b>${T("liked")}</b></p><a class="btn" href="${baseUrl()}#/crear">${T("create")} · ${esc(CONFIG.price)}</a></div>
       <p class="lp-foot">${T("made")} ♥ ${esc(CONFIG.brand)}</p>
     </main>
+    ${hasSong ? `<div class="player-dock"><div class="music" id="mus">
+        ${emb && emb.type === "yt" ? `<img class="thumb" src="https://i.ytimg.com/vi/${emb.id}/mqdefault.jpg" alt="">` : `<div class="disc"></div>`}
+        <div class="t"><b>${esc(p.song.title) || T("nolink")}</b><small>${esc(p.song.artist || "")}</small>${emb && emb.type === "yt" ? `<small class="hint" id="mh">${T("hint")}</small>` : ""}</div>
+        ${emb && emb.type === "yt" ? `<button class="play" id="play" aria-pressed="false" aria-label="${I18N[lang].play}">▶ ${I18N[lang].play}</button>` : ""}
+        <button class="x" id="musMin" aria-label="${I18N[lang].close}">✕</button>
+        ${emb ? `<div class="player-slot">${emb.type === "yt" ? `<div class="yt-frame" id="ytFrame"><div id="ytPlayer"></div></div>` : `<iframe src="${emb.src}" height="80" allow="autoplay; clipboard-write; encrypted-media" loading="lazy" title="${esc(p.song.title)}"></iframe>`}</div>` : ""}
+      </div></div>
+      <button class="mini-music" id="musMax" hidden aria-label="${I18N[lang].play}">♫</button>` : ""}
     <dialog class="lightbox" id="lb"><img id="lbImg" alt=""><button class="btn sm ghost" id="lbClose">${T("close")}</button></dialog>`, "lp");
 
   // Idioma: cambia solo los textos (la música sigue sonando)
@@ -1185,8 +1241,10 @@ async function viewLove(p){
   const from = startDate(p), cells = Object.fromEntries($$("#ctr [data-k]").map(b => [b.dataset.k, b]));
   const tick = () => { const d = diff(from); for (const k in cells) cells[k].textContent = pad(d[k]); };
   tick(); const iv = setInterval(tick, 1000); cleanup.push(() => clearInterval(iv));
-  // Música
+  // Música (reproductor flotante; se puede minimizar sin detener la canción)
   if (emb && emb.type === "yt") mountYouTube(emb.id, () => I18N[lang]);
+  const mm = $("#musMin"), mx = $("#musMax");
+  if (mm){ mm.onclick = () => { $("#mus").classList.add("min"); mx.hidden = false; }; mx.onclick = () => { $("#mus").classList.remove("min"); mx.hidden = true; }; }
   // Galería y recuerdos
   const lb = $("#lb");
   const openImg = src => { $("#lbImg").src = src; lb.showModal(); };
@@ -1220,7 +1278,7 @@ function mountYouTube(id, tr){
   const btn = $("#play"), card = $("#mus"), frame = $("#ytFrame");
   let player = null, ready = false, wantPlay = false;
   const setState = playing => {
-    card.classList.toggle("playing", playing); btn.textContent = playing ? "❚❚" : "▶";
+    card.classList.toggle("playing", playing); btn.textContent = playing ? "❚❚ " + tr().pause : "▶ " + tr().play;
     btn.setAttribute("aria-pressed", playing); btn.setAttribute("aria-label", playing ? tr().pause : tr().play);
     if (playing){ frame.classList.add("show"); const h = $("#mh"); if (h) h.hidden = true; }
   };
